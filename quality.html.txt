@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quality | ARTIMO</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">ARTIMO</div>
+
+<p>Quality Assurance for Industrial Fastening Solutions</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="engineering-library.html">Engineering Library</a>
+<a href="quality.html">Quality</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+<section>
+
+
+<h1>Quality</h1>
+
+
+<h2>Reliable Fastening Through Technical Control</h2>
+
+
+<p>
+Industrial fasteners are safety-critical components.
+ARTIMO supports quality-focused procurement through specification control,
+documentation review and traceability.
+</p>
+
+
+<h2>Quality Approach</h2>
+
+<p>
+Correct Specification Verification<br>
+Material Identification<br>
+Dimensional Control<br>
+Traceability Review<br>
+Documentation Control
+</p>
+
+
+<h2>Technical Documentation</h2>
+
+<p>
+Material Certificates<br>
+Mill Test Certificates (MTC)<br>
+Inspection Reports<br>
+Dimensional Reports<br>
+Compliance Documents<br>
+Coating Certificates
+</p>
+
+
+<h2>Inspection Support</h2>
+
+<p>
+Visual Inspection<br>
+Thread Verification<br>
+Mechanical Property Verification<br>
+Surface Treatment Verification
+</p>
+
+
+<h2>Specification Control</h2>
+
+<p>
+Standard<br>
+Size<br>
+Thread System<br>
+Material<br>
+Grade<br>
+Coating<br>
+Documentation Requirements
+</p>
+
+
+<h2>Engineering Reliability</h2>
+
+<p>
+Quality begins with correct engineering decisions.
+</p>
+
+
+</section>
+
+
+<footer>
+
+ARTIMO<br>
+Engineering First. Supply Second.
+
+</footer>
+
+
+</body>
+
+</html>

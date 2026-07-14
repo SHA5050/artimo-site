@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Products | ARTIMO</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">ARTIMO</div>
+
+<p>Industrial Fasteners & Engineering Solutions</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="engineering-library.html">Engineering Library</a>
+<a href="quality.html">Quality</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+<section>
+
+<h1>Industrial Fasteners</h1>
+
+
+<p>
+ARTIMO provides technically selected fastening solutions
+for demanding industrial applications.
+</p>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h2>Hex Bolts</h2>
+
+<p>
+Standard and high-strength hex bolts for industrial assemblies.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Socket Screws</h2>
+
+<p>
+Precision fastening solutions for machinery and industrial applications.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Stud Bolts</h2>
+
+<p>
+Threaded fastening solutions for critical bolted connections.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Nuts & Heavy Hex Nuts</h2>
+
+<p>
+Industrial nuts selected according to bolt grade and application.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Washers</h2>
+
+<p>
+Flat washers, spring washers and locking solutions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Anchor Bolts</h2>
+
+<p>
+Structural fastening solutions for foundations and industrial projects.
+</p>
+
+</div>
+
+
+</div>
+
+
+<h2>Material Options</h2>
+
+<p>
+Carbon Steel • Alloy Steel • 304 • 316 • Duplex 2205 •
+Super Duplex 2507 • Titanium • Inconel • Monel • Hastelloy
+</p>
+
+
+<h2>Coating Options</h2>
+
+<p>
+Zinc • HDG • Black Oxide • Geomet • Dacromet •
+Xylan • PTFE • Zinc Nickel • Delta Protekt
+</p>
+
+
+</section>
+
+
+<footer>
+
+ARTIMO<br>
+Engineering First. Supply Second.
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | ARTIMO</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo">ARTIMO</div>
+<p>Engineering Procurement Partner for Industrial Fasteners</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="engineering-library.html">Engineering Library</a>
+<a href="quality.html">Quality</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<section>
+
+<h1>Contact ARTIMO</h1>
+
+<p>
+For technical inquiries, engineering support and industrial fastening solutions, please contact ARTIMO.
+</p>
+
+<h2>Request Information</h2>
+
+<ul>
+<li>Application Details</li>
+<li>Fastener Type</li>
+<li>Required Standard</li>
+<li>Material</li>
+<li>Quantity</li>
+<li>Quality Documentation Requirements</li>
+</ul>
+
+<h2>ARTIMO</h2>
+
+<p>
+Industrial Fasteners<br>
+Engineering Knowledge<br>
+Reliable Supply
+</p>
+
+<p>
+Engineering First. Supply Second.
+</p>
+
+</section>
+
+<footer>
+ARTIMO<br>
+Industrial Fasteners & Engineering Solutions
+</footer>
+
+</body>
+</html>

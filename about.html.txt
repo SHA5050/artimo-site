@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | ARTIMO</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">ARTIMO</div>
+
+<p>Engineering Procurement Partner for Industrial Fasteners</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="engineering-library.html">Engineering Library</a>
+<a href="quality.html">Quality</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+<section>
+
+<h1>About ARTIMO</h1>
+
+
+<h2>Engineering Behind Every Fastening Solution</h2>
+
+
+<p>
+ARTIMO is an Engineering Procurement Partner specializing in Industrial Fasteners and Engineering Fastening Solutions.
+</p>
+
+
+<p>
+Our philosophy is simple:
+Engineering First. Supply Second.
+</p>
+
+
+<p>
+Industrial fasteners are critical mechanical components.
+Correct selection requires understanding of standards,
+materials, mechanical properties, coatings and application conditions.
+</p>
+
+
+<h2>Our Expertise</h2>
+
+<p>
+Industrial Fasteners<br>
+High Strength Bolting Solutions<br>
+Stainless Steel Fasteners<br>
+Special Alloy Fasteners<br>
+Engineering Application Support<br>
+Quality Documentation
+</p>
+
+
+<h2>Our Vision</h2>
+
+<p>
+To become a trusted international engineering partner
+for industrial fastening solutions by providing reliable products,
+technical knowledge and professional support.
+</p>
+
+
+</section>
+
+
+<footer>
+
+ARTIMO<br>
+Industrial Fasteners & Engineering Solutions
+
+</footer>
+
+
+</body>
+
+</html>
