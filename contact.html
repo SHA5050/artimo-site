@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Request a Quote | ARTIMO</title>
+<title>Request A Quote | ARTIMO</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -18,24 +18,39 @@
 
 <header>
 
-<h1>ARTIMO</h1>
+<div class="navbar">
 
-<p>
-Engineering-Based Industrial Components & Fastening Solutions
-</p>
+<div class="logo">
+ARTIMO
+</div>
+
+<a class="nav-button" href="index.html">
+HOME
+</a>
+
+</div>
+
 
 </header>
 
 
 
+
+
 <section>
 
-<h2>Request a Quote (RFQ)</h2>
 
-<p>
-Send your technical requirements. 
-Our engineering team will review your request.
+<h2 class="section-title">
+Request A Quote (RFQ)
+</h2>
+
+
+<p style="text-align:center;margin-bottom:35px;">
+Submit your industrial requirement.
+Our engineering team will review your application and respond.
 </p>
+
+
 
 
 <form>
@@ -45,7 +60,9 @@ Our engineering team will review your request.
 Company Name
 </label>
 
-<input type="text" name="company">
+<input 
+type="text" 
+placeholder="Company Name">
 
 
 
@@ -53,7 +70,9 @@ Company Name
 Country
 </label>
 
-<input type="text" name="country">
+<input 
+type="text"
+placeholder="Country">
 
 
 
@@ -61,7 +80,9 @@ Country
 Contact Person
 </label>
 
-<input type="text" name="contact">
+<input 
+type="text"
+placeholder="Full Name">
 
 
 
@@ -69,15 +90,69 @@ Contact Person
 Email
 </label>
 
-<input type="email" name="email">
+<input 
+type="email"
+placeholder="Business Email">
 
 
 
 <label>
-Requirement Description
+Phone / WhatsApp
 </label>
 
-<textarea name="requirement"></textarea>
+<input 
+type="text"
+placeholder="Contact Number">
+
+
+
+<label>
+Industry
+</label>
+
+
+<select>
+
+<option>
+Select Industry
+</option>
+
+<option>
+Automotive
+</option>
+
+<option>
+Railway
+</option>
+
+<option>
+Oil & Gas
+</option>
+
+<option>
+Energy
+</option>
+
+<option>
+Industrial Machinery
+</option>
+
+</select>
+
+
+
+
+
+<label>
+Part / Product Requirement
+</label>
+
+
+<textarea
+placeholder="Describe your requirement">
+</textarea>
+
+
 
 
 
@@ -85,15 +160,23 @@ Requirement Description
 Quantity
 </label>
 
-<input type="text" name="quantity">
+<input
+type="text"
+placeholder="Required Quantity">
+
+
 
 
 
 <label>
-Standard (DIN / ISO / ASTM / Other)
+Standard
 </label>
 
-<input type="text" name="standard">
+<input
+type="text"
+placeholder="DIN / ISO / ASTM / Customer Standard">
+
+
 
 
 
@@ -101,7 +184,11 @@ Standard (DIN / ISO / ASTM / Other)
 Upload Drawing
 </label>
 
-<input type="file" name="drawing">
+
+<input
+type="file">
+
+
 
 
 
@@ -112,6 +199,7 @@ SEND RFQ
 </button>
 
 
+
 </form>
 
 
@@ -119,16 +207,24 @@ SEND RFQ
 
 
 
-<section>
 
-<h2>Direct Engineering Contact</h2>
+
+<section class="trust">
+
+
+<h2>
+Technical Sales Desk
+</h2>
+
 
 <p>
-WhatsApp: Add your business number
-</p>
 
-<p>
-Email: Add your business email
+Direct communication with ARTIMO engineering team.
+
+<br><br>
+
+Technical clarification → Quotation → Supply Solution
+
 </p>
 
 
@@ -136,11 +232,11 @@ Email: Add your business email
 
 
 
+
+
 <footer>
 
-<p>
-ARTIMO | Industrial Engineering Solutions
-</p>
+ARTIMO | Engineering-Based Industrial Solutions
 
 </footer>
 
