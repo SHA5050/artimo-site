@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Request Technical RFQ | ARTIMO</title>
+<title>ARTIMO | Technical RFQ</title>
 
-<meta name="description" content="Submit your industrial fastener requirements to ARTIMO engineering team.">
+<meta name="description" content="Contact ARTIMO for industrial fastening requirements, technical RFQ and engineering support.">
 
 <link rel="stylesheet" href="style.css">
 
@@ -18,7 +18,7 @@
 <body>
 
 
-<header>
+<header class="header">
 
 <div class="container nav">
 
@@ -29,11 +29,13 @@ ARTIMO
 
 <nav>
 
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="quality.html">Quality</a>
-<a href="engineering-library.html">Engineering</a>
-<a href="contact.html">RFQ</a>
+<a href="index.html">HOME</a>
+<a href="products.html">SOLUTIONS</a>
+<a href="quality.html">QUALITY</a>
+<a href="engineering-library.html">ENGINEERING LIBRARY</a>
+<a href="about.html">ABOUT</a>
+<a href="contact.html">CONTACT</a>
+<a class="rfq-btn" href="contact.html">REQUEST RFQ</a>
 
 </nav>
 
@@ -44,21 +46,31 @@ ARTIMO
 
 
 
+
+
 <section class="hero">
 
 <div class="container">
 
+<div class="hero-content">
+
+
+<p class="eyebrow">
+TECHNICAL RFQ
+</p>
+
+
 <h1>
-Submit Your Technical RFQ
+Start Your Engineering Discussion
 </h1>
 
 
 <p>
-Share your fastening requirements.
-ARTIMO engineering team will review your application
-and provide the right solution.
+Send your technical requirements, drawings or specifications. ARTIMO will review your fastening application and support the right solution.
 </p>
 
+
+</div>
 
 </div>
 
@@ -68,25 +80,28 @@ and provide the right solution.
 
 
 
-<section>
+
+
+<section class="solutions">
+
 
 <div class="container">
 
 
 <h2>
-Technical Inquiry Form
+Request Technical RFQ
 </h2>
 
 
-<form action="#" method="post">
 
+<form class="card">
 
 
 <label>
 Company Name
 </label>
 
-<input type="text" name="company" placeholder="Company Name">
+<input type="text" name="company">
 
 
 
@@ -94,7 +109,7 @@ Company Name
 Contact Person
 </label>
 
-<input type="text" name="person" placeholder="Full Name">
+<input type="text" name="contact">
 
 
 
@@ -102,7 +117,7 @@ Contact Person
 Country
 </label>
 
-<input type="text" name="country" placeholder="Country">
+<input type="text" name="country">
 
 
 
@@ -110,77 +125,31 @@ Country
 Industry
 </label>
 
-<select name="industry">
-
-<option>Railway</option>
-<option>Heavy Industry</option>
-<option>Steel</option>
-<option>Oil & Gas</option>
-<option>Petrochemical</option>
-<option>Energy</option>
-<option>Other</option>
-
-</select>
-
+<input type="text" name="industry">
 
 
 
 <label>
-Product Type
+Product Requirement
 </label>
 
-
-<select name="product">
-
-<option>Bolts</option>
-<option>Heavy Hex Bolts</option>
-<option>Stud Bolts</option>
-<option>Socket Screws</option>
-<option>Nuts</option>
-<option>Washers</option>
-<option>Special Fasteners</option>
-
-</select>
-
+<input type="text" name="product">
 
 
 
 <label>
-Standard
+Standard / Material Grade
 </label>
 
-
-<input type="text"
-name="standard"
-placeholder="ASTM / ASME / DIN / ISO / EN">
-
-
+<input type="text" name="standard">
 
 
 
 <label>
-Material / Grade
+Quantity
 </label>
 
-
-<input type="text"
-name="material"
-placeholder="Example: ASTM A193 B7, Stainless Steel, 10.9">
-
-
-
-
-
-<label>
-Size & Quantity
-</label>
-
-
-<input type="text"
-name="quantity"
-placeholder="Example: M20 x 100 mm / 500 pcs">
-
-
+<input type="text" name="quantity">
 
 
 
@@ -188,38 +157,29 @@ placeholder="Example: M20 x 100 mm / 500 pcs">
 Application Details
 </label>
 
-
-<textarea
-name="application"
-rows="6"
-placeholder="Describe your application, operating conditions, temperature, corrosion requirements...">
-</textarea>
-
-
+<textarea name="details" rows="5"></textarea>
 
 
 
 <label>
-Additional Message
+Drawing / Specification Link
 </label>
 
-
-<textarea
-name="message"
-rows="5"
-placeholder="Additional technical information">
-</textarea>
+<input type="text" name="drawing">
 
 
 
+<label>
+Message
+</label>
+
+<textarea name="message" rows="5"></textarea>
 
 
-<button class="btn primary" type="submit">
 
-Submit Technical RFQ
-
+<button type="submit" class="btn">
+SUBMIT TECHNICAL RFQ
 </button>
-
 
 
 </form>
@@ -235,22 +195,83 @@ Submit Technical RFQ
 
 
 
-<section class="engineering">
+
+<section class="quality">
 
 
 <div class="container">
 
 
 <h2>
-Engineering First. Supply Second.
+Why Contact ARTIMO?
 </h2>
 
 
+
+<div class="grid four">
+
+
+
+<div class="card">
+
+<h3>
+Engineering Review
+</h3>
+
 <p>
-ARTIMO evaluates technical requirements,
-material selection, standards and application conditions
-before recommending a fastening solution.
+Requirements are evaluated before supply.
 </p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Industrial Focus
+</h3>
+
+<p>
+Specialized in industrial fastening solutions.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Quality Support
+</h3>
+
+<p>
+Documentation and traceability support.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Global Coordination
+</h3>
+
+<p>
+Support for international procurement needs.
+</p>
+
+</div>
+
+
+
+</div>
 
 
 </div>
@@ -262,21 +283,19 @@ before recommending a fastening solution.
 
 
 
-<footer>
 
+
+<footer>
 
 <div class="container">
 
 <p>
-© 2026 ARTIMO |
-Engineering Procurement Partner for Industrial Fasteners
+© 2026 ARTIMO | Engineering Procurement Partner for Industrial Fasteners
 </p>
 
 </div>
 
-
 </footer>
-
 
 
 </body>
