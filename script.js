@@ -1,0 +1,1 @@
+const s=document.getElementById('search');const r=document.getElementById('result');if(s){s.oninput=()=>{let v=s.value.toLowerCase();r.innerHTML=(v.includes('bolt')||v.includes('screw'))?'<h3>HEX BOLT</h3><p>DIN 931 | Grade 10.9 | Carbon Steel</p><a class="btn" href="contact.html">REQUEST RFQ</a>':''}}
