@@ -3,181 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ARTIMO | Engineering Procurement Partner</title>
-
-<meta name="description" content="ARTIMO - Engineering Procurement Partner for Industrial Fasteners and Engineering Fastening Solutions. Engineering First. Supply Second.">
-
-<style>
-:root{
---bg:#090b0f;
---panel:#11151b;
---gray:#8d949d;
---light:#f4f6f8;
---red:#d71920;
---line:#262c33;
-}
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-background:var(--bg);
-color:var(--light);
-line-height:1.6;
-}
-
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
-
-header{
-padding:25px 0;
-border-bottom:1px solid var(--line);
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:34px;
-font-weight:900;
-letter-spacing:3px;
-}
-
-.logo span{
-color:var(--red);
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-margin-left:25px;
-font-size:14px;
-}
-
-.hero{
-min-height:85vh;
-display:flex;
-align-items:center;
-background:
-linear-gradient(90deg,rgba(9,11,15,.96),rgba(9,11,15,.55)),
-url("industrial-engineering.jpg");
-background-size:cover;
-background-position:center;
-}
-
-.hero h1{
-font-size:64px;
-line-height:1.1;
-max-width:850px;
-}
-
-.hero h1 span{
-color:var(--red);
-}
-
-.hero p{
-margin-top:25px;
-max-width:650px;
-font-size:21px;
-color:#d0d5da;
-}
-
-.btn{
-display:inline-block;
-margin-top:35px;
-padding:15px 35px;
-background:var(--red);
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-section{
-padding:90px 0;
-}
-
-.title{
-font-size:40px;
-margin-bottom:30px;
-}
-
-.subtitle{
-color:var(--gray);
-max-width:750px;
-font-size:18px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-margin-top:45px;
-}
-
-.card{
-background:var(--panel);
-padding:35px;
-border:1px solid var(--line);
-}
-
-.card h3{
-font-size:22px;
-margin-bottom:15px;
-}
-
-.card p{
-color:#b7bec6;
-}
-
-.red{
-color:var(--red);
-}
-
-.system{
-border-left:4px solid var(--red);
-padding-left:25px;
-margin-top:35px;
-}
-
-.rfq{
-background:#121820;
-text-align:center;
-}
-
-footer{
-padding:40px 0;
-border-top:1px solid var(--line);
-color:#8d949d;
-text-align:center;
-}
-
-@media(max-width:700px){
-.hero h1{
-font-size:40px;
-}
-nav{
-display:none;
-}
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
-<div class="logo">
-ARTI<span>MO</span>
+<div class="container nav">
+<div class="brand">
+<img src="assets/logo/artimo-logo.svg" alt="ARTIMO">
 </div>
 
 <nav>
@@ -187,54 +22,51 @@ ARTI<span>MO</span>
 <a href="#">Quality</a>
 <a href="#">RFQ</a>
 </nav>
-</header>
-
 </div>
+</header>
 
 
 <section class="hero">
 
-<div class="container">
+<div class="container hero-content">
+
+<div class="accent"></div>
 
 <h1>
-Engineering Procurement Partner
-<br>
-<span>Engineering First. Supply Second.</span>
+Engineering Fastening Solutions
+for Critical Industries
 </h1>
 
+<h2>
+Engineering First. Supply Second.
+</h2>
+
 <p>
-ARTIMO delivers industrial fastening solutions through engineering knowledge,
-qualified supply, quality control and traceability.
+ARTIMO provides industrial fastening solutions with engineering control,
+qualified supply, quality assurance and traceability.
 </p>
 
-<a class="btn" href="#">Submit Engineering RFQ</a>
+<a class="btn" href="#">
+Request Engineering RFQ
+</a>
 
 </div>
 
 </section>
 
 
-
-<section>
+<section class="section">
 
 <div class="container">
 
-<h2 class="title">
-Industrial Fastening Solutions
-</h2>
+<h2>Industrial Expertise</h2>
 
-<p class="subtitle">
-ARTIMO is focused on critical fastening applications where reliability,
-documentation and engineering confidence matter.
-</p>
-
-
-<div class="grid">
+<div class="cards">
 
 <div class="card">
 <h3>Railway Systems</h3>
 <p>
-High reliability fastening solutions for demanding railway environments.
+Reliable fastening solutions for demanding railway applications.
 </p>
 </div>
 
@@ -242,7 +74,7 @@ High reliability fastening solutions for demanding railway environments.
 <div class="card">
 <h3>Heavy Industry</h3>
 <p>
-Engineering fastening systems designed for industrial reliability.
+Engineering fastening systems for industrial reliability.
 </p>
 </div>
 
@@ -250,7 +82,7 @@ Engineering fastening systems designed for industrial reliability.
 <div class="card">
 <h3>Oil & Gas</h3>
 <p>
-Critical bolting solutions with quality and traceability focus.
+Critical bolting solutions with controlled quality.
 </p>
 </div>
 
@@ -258,10 +90,9 @@ Critical bolting solutions with quality and traceability focus.
 <div class="card">
 <h3>Power & Energy</h3>
 <p>
-Reliable fastening solutions for infrastructure projects.
+Fastening solutions for infrastructure projects.
 </p>
 </div>
-
 
 </div>
 
@@ -270,24 +101,21 @@ Reliable fastening solutions for infrastructure projects.
 </section>
 
 
-
-<section>
+<section class="dark-section">
 
 <div class="container">
 
-<h2 class="title">
+<h2>
 ARTIMO Engineering System
 </h2>
 
-<div class="system">
+<div class="process">
 
-<h3>
-Challenge → Engineering → Solution → Quality → Supply
-</h3>
-
-<p>
-ARTIMO transforms fastening requirements into controlled engineering solutions.
-</p>
+Challenge →
+Engineering →
+Solution →
+Quality →
+Supply
 
 </div>
 
@@ -296,78 +124,36 @@ ARTIMO transforms fastening requirements into controlled engineering solutions.
 </section>
 
 
-
-<section>
-
-<div class="container">
-
-<h2 class="title">
-Engineering Knowledge Hub
-</h2>
-
-
-<div class="grid">
-
-<div class="card">
-<h3>Material Selection</h3>
-<p>
-Understanding material performance and application requirements.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Standards Comparison</h3>
-<p>
-Engineering guidance for industrial fastening standards.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Failure Analysis</h3>
-<p>
-Reducing industrial fastening risks through technical knowledge.
-</p>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section>
+<section class="section">
 
 <div class="container">
 
-<h2 class="title">
+<h2>
 Quality & Traceability
 </h2>
 
-<div class="grid">
+<div class="cards">
 
 <div class="card">
 <h3>Inspection</h3>
 <p>
-Quality verification and documentation control.
+Documentation and verification control.
 </p>
 </div>
+
 
 <div class="card">
 <h3>Testing</h3>
 <p>
-Supporting industrial requirements with technical evidence.
+Technical validation for critical applications.
 </p>
 </div>
+
 
 <div class="card">
 <h3>Qualification</h3>
 <p>
-Supplier qualification and controlled sourcing.
+Controlled supplier evaluation.
 </p>
 </div>
 
@@ -376,29 +162,19 @@ Supplier qualification and controlled sourcing.
 </div>
 
 </section>
-
 
 
 <section class="rfq">
 
-<div class="container">
-
-<h2 class="title">
+<h2>
 Ready for Your Engineering Requirement?
 </h2>
 
-<p class="subtitle">
-Send your fastening challenge and let ARTIMO develop the right solution.
-</p>
-
 <a class="btn" href="#">
-Request RFQ
+Submit RFQ
 </a>
 
-</div>
-
 </section>
-
 
 
 <footer>
