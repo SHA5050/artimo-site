@@ -1,205 +1,189 @@
-:root{
---bg:#080b10;
---panel:#121820;
---red:#d71920;
---text:#f4f6f8;
---gray:#aab1b9;
-}
+:root {
+  --artimo-dark: #11161c;
+  --artimo-surface: #1b222b;
+  --artimo-steel: #68727d;
+  --artimo-red: #c92525;
+  --artimo-white: #f5f7f9;
+  --artimo-muted: #aeb6bf;
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-
-body{
-background:var(--bg);
-color:var(--text);
+  --container-max: 1280px;
+  --section-gap: 80px;
+  --radius: 8px;
 }
 
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
+* {
+  box-sizing: border-box;
 }
 
 
-header{
-border-bottom:1px solid #222;
-padding:25px 0;
+body {
+  margin: 0;
+  background: var(--artimo-dark);
+  color: var(--artimo-white);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.container {
+  width: min(92%, var(--container-max));
+  margin: auto;
 }
 
 
-.brand img{
-height:45px;
+.artimo-header {
+  background: #0d1117;
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-size:14px;
+.header-inner {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
-
-.hero{
-
-min-height:85vh;
-display:flex;
-align-items:center;
-
-background:
-linear-gradient(
-90deg,
-rgba(8,11,16,.95),
-rgba(8,11,16,.55)
-),
-url("assets/images/hero-industrial.jpg");
-
-background-size:cover;
-background-position:center;
-
+.logo {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 3px;
 }
 
 
-.hero-content{
-max-width:800px;
+nav {
+  display: flex;
+  gap: 25px;
 }
 
 
-.accent{
-height:5px;
-width:90px;
-background:var(--red);
-margin-bottom:30px;
+nav a {
+  color: var(--artimo-muted);
 }
 
 
-h1{
-font-size:60px;
-line-height:1.1;
+nav a:hover {
+  color: var(--artimo-red);
 }
 
 
-h2{
-color:var(--red);
-margin-top:20px;
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background:
+  linear-gradient(
+  rgba(0,0,0,.55),
+  rgba(0,0,0,.85)
+  );
 }
 
 
-p{
-color:var(--gray);
-font-size:18px;
-margin-top:20px;
+.hero-content {
+  max-width: 760px;
 }
 
 
-.btn{
-
-display:inline-block;
-margin-top:35px;
-background:var(--red);
-padding:15px 35px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-
+.hero h1 {
+  font-size: clamp(42px,6vw,78px);
+  line-height: 1.05;
 }
 
 
-
-.section{
-
-padding:80px 0;
-
+.hero p {
+  font-size: 20px;
+  color: var(--artimo-muted);
 }
 
 
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:40px;
-
+.artimo-button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 35px;
+  background: var(--artimo-red);
+  color: white;
+  border-radius: 4px;
 }
 
 
-.card{
-
-background:var(--panel);
-border:1px solid #252c35;
-padding:35px;
-
+.section {
+  padding: var(--section-gap) 0;
 }
 
 
-.card h3{
-
-font-size:22px;
-
+h2 {
+  font-size: 42px;
 }
 
 
-.dark-section{
-
-background:#10151c;
-padding:80px 0;
-
+.grid {
+  display: grid;
+  gap: 30px;
 }
 
 
-.process{
-
-margin-top:35px;
-border-left:5px solid var(--red);
-padding:25px;
-font-size:28px;
-
+.grid-3 {
+  grid-template-columns: repeat(3,1fr);
 }
 
 
-
-.rfq{
-
-padding:90px 20px;
-text-align:center;
-background:#111820;
-
+.engineering-card {
+  background: var(--artimo-surface);
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.12);
 }
 
 
-
-footer{
-
-padding:35px;
-text-align:center;
-color:#777;
-
+.engineering-card p {
+  color: var(--artimo-muted);
 }
 
 
-
-@media(max-width:700px){
-
-h1{
-font-size:38px;
+.pvis-module {
+  background: var(--artimo-surface);
+  padding: 45px;
+  border-left: 5px solid var(--artimo-red);
 }
 
-nav{
-display:none;
+
+.pvis-image {
+  height: 280px;
+  background: var(--artimo-steel);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
+
+
+.rfq-panel {
+  background: var(--artimo-surface);
+  padding: 50px;
+  border-left: 5px solid var(--artimo-red);
+}
+
+
+.quality-block {
+  background: var(--artimo-surface);
+  padding:30px;
+}
+
+
+footer {
+  padding:40px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+
+@media(max-width:900px){
+
+  nav {
+    display:none;
+  }
+
+  .grid-3 {
+    grid-template-columns:1fr;
+  }
 
 }
