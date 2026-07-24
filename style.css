@@ -1,27 +1,21 @@
 :root {
 
-    --artimo-black: #0b0f14;
-    --artimo-dark: #141a22;
-    --artimo-gray: #68717d;
-    --artimo-light: #f3f5f7;
-    --artimo-white: #ffffff;
-    --artimo-red: #c1121f;
-    --artimo-red-dark: #8f0d16;
+    --artimo-black:#090d12;
+    --artimo-dark:#111820;
+    --artimo-panel:#171f29;
+    --artimo-gray:#8b949e;
+    --artimo-white:#ffffff;
+    --artimo-red:#c1121f;
+    --artimo-red-dark:#8b0d16;
 
-    --max-width: 1200px;
+    --max-width:1200px;
 
-    --space-xs: 10px;
-    --space-sm: 20px;
-    --space-md: 40px;
-    --space-lg: 80px;
-
-    --radius: 8px;
+    --radius:10px;
 
     --shadow:
-    0 10px 30px rgba(0,0,0,0.25);
+    0 20px 45px rgba(0,0,0,.35);
 
 }
-
 
 
 * {
@@ -37,18 +31,17 @@
 body {
 
     font-family:
-    "Arial",
-    "Helvetica",
+    Arial,
+    Helvetica,
     sans-serif;
 
     background:
     var(--artimo-black);
 
     color:
-    var(--artimo-light);
+    var(--artimo-white);
 
-    line-height:
-    1.6;
+    line-height:1.6;
 
 }
 
@@ -56,19 +49,19 @@ body {
 
 a {
 
-    color:
-    inherit;
-
     text-decoration:none;
+
+    color:inherit;
 
 }
 
 
 
+
+
 .header {
 
-    position:
-    sticky;
+    position:sticky;
 
     top:0;
 
@@ -80,14 +73,15 @@ a {
 
     align-items:center;
 
-    padding:
-    20px 5%;
+    padding:20px 6%;
 
     background:
-    rgba(11,15,20,0.95);
+    rgba(9,13,18,.92);
+
+    backdrop-filter:blur(8px);
 
     border-bottom:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,.08);
 
 }
 
@@ -95,17 +89,11 @@ a {
 
 .logo a {
 
-    font-size:
-    32px;
+    font-size:32px;
 
-    font-weight:
-    800;
+    font-weight:900;
 
-    letter-spacing:
-    3px;
-
-    color:
-    var(--artimo-white);
+    letter-spacing:4px;
 
 }
 
@@ -117,11 +105,9 @@ a {
 
     display:block;
 
-    width:
-    45px;
+    width:45px;
 
-    height:
-    4px;
+    height:4px;
 
     background:
     var(--artimo-red);
@@ -131,13 +117,11 @@ a {
 
 
 
-
 nav {
 
     display:flex;
 
-    gap:
-    25px;
+    gap:28px;
 
 }
 
@@ -145,14 +129,11 @@ nav {
 
 nav a {
 
-    color:
-    #d9dde2;
+    color:#c9d0d8;
 
-    font-size:
-    15px;
+    font-size:15px;
 
-    transition:
-    .3s;
+    transition:.3s;
 
 }
 
@@ -170,33 +151,31 @@ nav a.active {
 
 
 
+
+
 .hero {
 
-    min-height:
-    520px;
+    min-height:620px;
 
     display:flex;
 
     align-items:center;
 
-    padding:
-    80px 5%;
+    padding:80px 6%;
 
     background:
 
     linear-gradient(
     90deg,
-    rgba(11,15,20,.95),
-    rgba(11,15,20,.55)
+    rgba(9,13,18,.95),
+    rgba(9,13,18,.45)
     ),
 
-    url("assets/industrial-hero.jpg");
+    url("assets/hero/industrial-fasteners-hero.jpg");
 
-    background-size:
-    cover;
+    background-size:cover;
 
-    background-position:
-    center;
+    background-position:center;
 
 }
 
@@ -204,8 +183,7 @@ nav a.active {
 
 .hero-content {
 
-    max-width:
-    700px;
+    max-width:720px;
 
 }
 
@@ -214,13 +192,11 @@ nav a.active {
 .hero h1 {
 
     font-size:
-    clamp(36px,5vw,64px);
+    clamp(42px,6vw,72px);
 
-    line-height:
-    1.1;
+    line-height:1.05;
 
-    margin-bottom:
-    25px;
+    margin-bottom:25px;
 
 }
 
@@ -228,16 +204,14 @@ nav a.active {
 
 .hero p {
 
-    font-size:
-    20px;
+    font-size:21px;
 
-    color:
-    #d0d5da;
+    color:#d5dbe1;
 
-    margin-bottom:
-    35px;
+    margin-bottom:35px;
 
 }
+
 
 
 
@@ -248,23 +222,21 @@ nav a.active {
 
     display:inline-block;
 
+    margin:8px;
+
+    padding:14px 32px;
+
     background:
     var(--artimo-red);
 
-    padding:
-    14px 30px;
+    color:white;
 
     border-radius:
     var(--radius);
 
-    color:
-    white;
+    font-weight:700;
 
-    font-weight:
-    700;
-
-    transition:
-    .3s;
+    transition:.3s;
 
 }
 
@@ -276,9 +248,11 @@ nav a.active {
     var(--artimo-red-dark);
 
     transform:
-    translateY(-2px);
+    translateY(-3px);
 
 }
+
+
 
 
 
@@ -291,8 +265,7 @@ nav a.active {
 
     margin:auto;
 
-    padding:
-    var(--space-lg) 5%;
+    padding:90px 6%;
 
 }
 
@@ -300,11 +273,9 @@ nav a.active {
 
 .section h2 {
 
-    font-size:
-    36px;
+    font-size:38px;
 
-    margin-bottom:
-    25px;
+    margin-bottom:30px;
 
 }
 
@@ -312,13 +283,11 @@ nav a.active {
 
 .section p {
 
-    color:
-    #c8cdd3;
-
-    margin-bottom:
-    20px;
+    color:#c4ccd5;
 
 }
+
+
 
 
 
@@ -337,20 +306,21 @@ nav a.active {
 
 
 
+
+
 .cards {
 
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+    repeat(auto-fit,minmax(260px,1fr));
 
-    gap:
-    25px;
+    gap:30px;
 
-    margin-top:
-    40px;
+    margin-top:45px;
 
 }
+
 
 
 
@@ -359,22 +329,20 @@ nav a.active {
 .card {
 
     background:
-    #1b222c;
-
-    padding:
-    30px;
-
-    border-radius:
-    var(--radius);
+    var(--artimo-panel);
 
     border:
     1px solid rgba(255,255,255,.08);
 
+    border-radius:
+    var(--radius);
+
+    overflow:hidden;
+
     box-shadow:
     var(--shadow);
 
-    transition:
-    .3s;
+    transition:.35s;
 
 }
 
@@ -383,7 +351,7 @@ nav a.active {
 .card:hover {
 
     transform:
-    translateY(-5px);
+    translateY(-8px);
 
     border-color:
     var(--artimo-red);
@@ -392,62 +360,38 @@ nav a.active {
 
 
 
+
+
+
+.card img {
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+
+
 .card h3 {
 
-    margin-bottom:
-    15px;
+    font-size:24px;
 
-    color:
-    white;
+    padding:25px 25px 10px;
 
 }
 
 
 
-
-.parameter-box {
-
-    background:
-    #10151c;
+.card p {
 
     padding:
-    30px;
-
-    border-left:
-    5px solid var(--artimo-red);
+    0 25px 25px;
 
 }
 
-
-
-.parameter-box li {
-
-    list-style:none;
-
-    margin:
-    10px 0;
-
-}
-
-
-
-
-
-.quality-list {
-
-    columns:
-    2;
-
-}
-
-
-
-.quality-list li {
-
-    margin:
-    12px;
-
-}
 
 
 
@@ -456,14 +400,14 @@ nav a.active {
 
     text-align:center;
 
-    padding:
-    70px 5%;
+    padding:90px 6%;
 
     background:
+
     linear-gradient(
     135deg,
-    #1c222c,
-    #090c11
+    #171f29,
+    #090d12
     );
 
 }
@@ -472,26 +416,14 @@ nav a.active {
 
 .rfq-panel h2 {
 
-    margin-bottom:
-    20px;
+    font-size:42px;
+
+    margin-bottom:20px;
 
 }
 
 
 
-
-.contact-box {
-
-    background:
-    #10151c;
-
-    padding:
-    30px;
-
-    border-radius:
-    var(--radius);
-
-}
 
 
 
@@ -499,53 +431,13 @@ footer {
 
     text-align:center;
 
-    padding:
-    30px;
+    padding:35px;
 
-    background:
-    #07090c;
+    background:#05070a;
 
-    color:
-    #9299a3;
+    color:#8b949e;
 
 }
-
-
-
-
-
-
-.visible {
-
-    animation:
-    fadeUp .6s ease;
-
-}
-
-
-
-@keyframes fadeUp {
-
-from {
-
-    opacity:0;
-
-    transform:
-    translateY(20px);
-
-}
-
-to {
-
-    opacity:1;
-
-    transform:
-    translateY(0);
-
-}
-
-}
-
 
 
 
@@ -557,19 +449,17 @@ to {
 
 .header {
 
-    flex-direction:
-    column;
+    flex-direction:column;
 
-    gap:
-    20px;
+    gap:20px;
 
 }
 
 
+
 nav {
 
-    flex-wrap:
-    wrap;
+    flex-wrap:wrap;
 
     justify-content:center;
 
@@ -579,8 +469,15 @@ nav {
 
 .hero {
 
-    min-height:
-    420px;
+    min-height:480px;
+
+}
+
+
+
+.hero h1 {
+
+    font-size:40px;
 
 }
 
@@ -588,20 +485,9 @@ nav {
 
 .section h2 {
 
-    font-size:
-    28px;
+    font-size:30px;
 
 }
-
-
-
-.quality-list {
-
-    columns:
-    1;
-
-}
-
 
 
 }
