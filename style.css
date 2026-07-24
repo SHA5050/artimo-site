@@ -89,28 +89,19 @@ a {
 
 .logo a {
 
-    font-size:32px;
-
-    font-weight:900;
-
-    letter-spacing:4px;
+    display:block;
 
 }
 
 
 
-.logo a::after {
+.logo img {
 
-    content:"";
+    height:45px;
+
+    width:auto;
 
     display:block;
-
-    width:45px;
-
-    height:4px;
-
-    background:
-    var(--artimo-red);
 
 }
 
@@ -171,7 +162,7 @@ nav a.active {
     rgba(9,13,18,.45)
     ),
 
-    url("assets/hero/industrial-fasteners-hero.jpg");
+    url("assets/images/industrial-fastener-placeholder.svg");
 
     background-size:cover;
 
@@ -208,7 +199,21 @@ nav a.active {
 
     color:#d5dbe1;
 
-    margin-bottom:35px;
+    margin-bottom:25px;
+
+}
+
+
+
+.hero-visual {
+
+    margin-top:25px;
+
+    width:260px;
+
+    max-width:100%;
+
+    opacity:.95;
 
 }
 
