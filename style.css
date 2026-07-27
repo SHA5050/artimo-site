@@ -1,845 +1,488 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ARTIMO Industrial Visual System
+   Premium B2B Engineering Platform
+*/
 
-<head>
+:root{
+--bg:#090d12;
+--bg2:#111820;
+--card:#151d26;
+--card2:#1b2530;
+--text:#f2f5f7;
+--muted:#aeb8c2;
+--red:#d62f2f;
+--red-dark:#9e2020;
+--line:rgba(255,255,255,.12);
+--shadow:0 25px 60px rgba(0,0,0,.35);
+--radius:16px;
+--container:1200px;
+}
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ARTIMO | Industrial Fastener Intelligence Platform</title>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-<meta name="description" content="ARTIMO Industrial Fastener Intelligence Platform combines PVIS, PIS, VMS, engineering parameters, product master data and RFQ workflow for industrial fastening solutions.">
 
-<link rel="stylesheet" href="style.css">
+html{
+scroll-behavior:smooth;
+}
 
-</head>
 
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.7;
+}
 
-<body>
 
+a{
+text-decoration:none;
+color:inherit;
+transition:.3s;
+}
 
-<header class="site-header">
 
-<div class="container">
+.container{
+width:min(92%,var(--container));
+margin:auto;
+}
 
-<a href="index.html" class="brand">
 
-<div class="brand-logo">
-A
-</div>
 
-<div class="brand-title">
-ARTIMO
-<span>Engineering Procurement Partner</span>
-</div>
 
-</a>
+/* HEADER */
 
+.site-header{
+position:sticky;
+top:0;
+z-index:100;
+background:rgba(9,13,18,.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
+}
 
-<nav>
 
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="product-search.html">PVIS</a>
-<a href="engineering-library.html">Engineering Library</a>
-<a href="quality.html">Quality</a>
-<a href="contact.html" class="rfq-btn">RFQ</a>
+.site-header .container{
+height:82px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
 
-</nav>
 
-</div>
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
 
-</header>
 
+.brand-logo{
+width:48px;
+height:48px;
+background:var(--red);
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+font-size:28px;
+font-weight:800;
+color:white;
+}
 
 
+.brand-title{
+font-size:22px;
+font-weight:800;
+letter-spacing:1px;
+}
 
 
-<main>
+.brand-title span{
+display:block;
+font-size:12px;
+font-weight:400;
+color:var(--muted);
+}
 
 
+nav{
+display:flex;
+gap:24px;
+align-items:center;
+}
 
-<section class="hero product-hero">
 
-<div class="container">
+nav a{
+color:#d5dbe1;
+font-size:15px;
+}
 
 
-<div class="tag">
-PRODUCT INTELLIGENCE PLATFORM
-</div>
+nav a:hover{
+color:white;
+}
 
 
-<h1>
-Industrial Fasteners
-<br>
-From Identification To Qualified Supply
-</h1>
+.rfq-btn{
+background:var(--red);
+padding:10px 22px;
+border-radius:8px;
+color:white!important;
+}
 
 
-<p>
-ARTIMO connects product recognition, engineering data,
-standards, supplier intelligence and RFQ execution
-into one industrial fastening platform.
-</p>
 
 
+/* HERO */
 
-<div class="hero-actions">
+.hero{
+padding:100px 0;
+background:
+linear-gradient(135deg,rgba(214,47,47,.18),transparent 45%),
+var(--bg2);
+}
 
-<a href="product-search.html" class="primary-btn">
-Identify Product With PVIS
-</a>
 
+.product-hero{
+min-height:520px;
+display:flex;
+align-items:center;
+}
 
-<a href="contact.html" class="secondary-btn">
-Start Engineering RFQ
-</a>
 
+.hero .container{
+max-width:1000px;
+}
 
-</div>
 
+.tag{
+color:#ff8888;
+font-size:13px;
+font-weight:700;
+letter-spacing:2px;
+margin-bottom:18px;
+}
 
-</div>
 
-</section>
+.hero h1{
+font-size:clamp(40px,5vw,68px);
+line-height:1.12;
+margin-bottom:25px;
+}
 
 
+.hero p{
+max-width:700px;
+font-size:18px;
+color:var(--muted);
+}
 
 
+.hero-actions{
+display:flex;
+gap:15px;
+margin-top:35px;
+flex-wrap:wrap;
+}
 
 
+.primary-btn,
+.secondary-btn{
+padding:14px 28px;
+border-radius:10px;
+font-weight:700;
+display:inline-block;
+}
 
 
+.primary-btn{
+background:var(--red);
+color:white;
+}
 
-<section class="core-platform">
 
-<div class="container">
+.primary-btn:hover{
+background:var(--red-dark);
+}
 
 
-<div class="section-head">
+.secondary-btn{
+border:1px solid var(--line);
+background:rgba(255,255,255,.05);
+}
 
-<span>
-PRODUCT TAXONOMY SYSTEM
-</span>
 
 
-<h2>
-Industrial Fastening Product Families
-</h2>
 
+/* SECTIONS */
 
-<p>
-Structured categories designed for engineering selection and procurement control.
-</p>
+section{
+padding:90px 0;
+}
 
 
-</div>
+.section-head{
+text-align:center;
+margin-bottom:45px;
+}
 
 
+.section-head span{
+color:#ff8888;
+font-size:13px;
+letter-spacing:2px;
+font-weight:700;
+}
 
 
+.section-head h2{
+font-size:clamp(30px,4vw,44px);
+margin:15px 0;
+}
 
-<div class="platform-grid">
 
+.section-head p{
+color:var(--muted);
+}
 
 
-<div class="platform-box">
 
-<strong>
-01
-</strong>
 
-<h3>
-Bolts & Screws
-</h3>
+/* PLATFORM */
 
-<p>
-Hex bolts, heavy hex bolts, socket screws,
-stud bolts, structural bolts and high strength fasteners.
-</p>
+.platform-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+}
 
 
-<a href="contact.html">
-Request Solution
-</a>
+.platform-box,
+.product-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:30px;
+transition:.3s;
+}
 
-</div>
 
+.platform-box:hover,
+.product-card:hover{
+transform:translateY(-8px);
+border-color:var(--red);
+box-shadow:var(--shadow);
+}
 
 
+.platform-box strong{
+font-size:32px;
+color:var(--red);
+}
 
-<div class="platform-box">
 
-<strong>
-02
-</strong>
+.platform-box h3,
+.product-card h3{
+margin:15px 0;
+}
 
-<h3>
-Nuts
-</h3>
 
-<p>
-Heavy hex nuts, standard nuts,
-locking systems and engineered connection components.
-</p>
+.platform-box p,
+.product-card p{
+color:var(--muted);
+}
 
 
-<a href="contact.html">
-Request Solution
-</a>
+.platform-box a{
+display:inline-block;
+margin-top:20px;
+color:#ff8888;
+font-weight:700;
+}
 
-</div>
 
 
 
+/* ENGINEERING FLOW */
 
-<div class="platform-box">
+.rfq-flow{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:18px;
+}
 
-<strong>
-03
-</strong>
 
-<h3>
-Washers
-</h3>
+.rfq-flow div{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:12px;
+padding:25px;
+text-align:center;
+font-weight:700;
+}
 
-<p>
-Flat washers, spring washers,
-Nord-Lock and special industrial solutions.
-</p>
 
 
-<a href="contact.html">
-Request Solution
-</a>
 
-</div>
+/* PRODUCT */
 
+.product-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
 
 
+.products{
+background:#0d131a;
+}
 
-<div class="platform-box">
 
-<strong>
-04
-</strong>
 
-<h3>
-Special Fasteners
-</h3>
 
-<p>
-Custom engineered fastening solutions
-for critical applications.
-</p>
+/* INDUSTRIES */
 
+.industry-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
 
-<a href="contact.html">
-Request Solution
-</a>
 
-</div>
+.industry-grid div{
+background:var(--card);
+border:1px solid var(--line);
+padding:25px;
+border-radius:12px;
+text-align:center;
+font-weight:700;
+}
 
 
 
-</div>
 
+/* QUALITY */
 
-</div>
+.quality-box{
+background:
+linear-gradient(135deg,#1b2632,#10161d);
+padding:45px;
+border-radius:var(--radius);
+border:1px solid var(--line);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+}
 
-</section>
 
 
 
+/* FINAL RFQ */
 
+.final-rfq{
+text-align:center;
+background:
+linear-gradient(135deg,rgba(214,47,47,.15),transparent);
+}
 
 
+.final-rfq h2{
+font-size:42px;
+margin-bottom:20px;
+}
 
 
+.final-rfq p{
+color:var(--muted);
+margin-bottom:30px;
+}
 
-<section>
 
-<div class="container">
+.final-rfq a{
+display:inline-block;
+background:var(--red);
+padding:14px 32px;
+border-radius:10px;
+font-weight:700;
+}
 
 
-<div class="section-head">
 
-<span>
-PRODUCT MASTER DATA SYSTEM
-</span>
 
+/* FOOTER */
 
-<h2>
-Engineering Specification Framework
-</h2>
+footer{
+background:#070a0e;
+border-top:1px solid var(--line);
+padding:50px 0;
+}
 
 
-<p>
-Every fastener is defined through controlled engineering parameters.
-</p>
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+color:var(--muted);
+}
 
 
-</div>
+footer strong{
+font-size:24px;
+color:white;
+}
 
 
 
 
+/* RESPONSIVE */
 
-<div class="rfq-flow">
+@media(max-width:1000px){
 
+.platform-grid,
+.rfq-flow,
+.product-grid,
+.industry-grid,
+.footer-grid{
+grid-template-columns:1fr 1fr;
+}
 
-<div>
-SIZE
+nav{
+display:none;
+}
 
-<br>
+}
 
-Diameter D
 
-<br>
 
-1/2" - 4"
+@media(max-width:650px){
 
-</div>
+.platform-grid,
+.rfq-flow,
+.product-grid,
+.industry-grid,
+.footer-grid{
+grid-template-columns:1fr;
+}
 
 
-<div>
-LENGTH
+.hero{
+padding:60px 0;
+}
 
-<br>
 
-L
+.hero h1{
+font-size:38px;
+}
 
-</div>
 
+.quality-box{
+flex-direction:column;
+align-items:flex-start;
+}
 
-<div>
-THREAD
-
-<br>
-
-Pitch / Class
-
-</div>
-
-
-<div>
-MATERIAL
-
-<br>
-
-Grade
-
-</div>
-
-
-<div>
-COATING
-
-<br>
-
-Surface Protection
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-
-
-
-
-
-<section class="products">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<span>
-ENGINEERING DATA LAYERS
-</span>
-
-
-<h2>
-Product Qualification Structure
-</h2>
-
-
-</div>
-
-
-
-
-
-<div class="product-grid">
-
-
-
-<div class="product-card">
-
-<h3>
-Standards Database
-</h3>
-
-<p>
-DIN, ISO, ASTM and ASME standards
-mapped to industrial fastener requirements.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="product-card">
-
-<h3>
-Material Intelligence
-</h3>
-
-<p>
-Carbon Steel, Alloy Steel,
-Stainless Steel and engineered materials.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="product-card">
-
-<h3>
-Coating Intelligence
-</h3>
-
-<p>
-PTFE (Teflon), Zinc Plate,
-Black Oxide, Electro Galvanized,
-Hot Dip Galvanized and Cadmium Plate.
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-
-
-
-
-
-<section class="core-platform">
-
-
-<div class="container">
-
-
-<div class="section-head">
-
-
-<span>
-PVIS / PIS / VMS ENGINE
-</span>
-
-
-<h2>
-Visual Identification To Engineering Match
-</h2>
-
-
-<p>
-ARTIMO converts product images into structured engineering information.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="rfq-flow">
-
-
-<div>
-
-UPLOAD
-
-<br>
-
-Image / Drawing
-
-</div>
-
-
-
-<div>
-
-PVIS
-
-<br>
-
-Visual Recognition
-
-</div>
-
-
-
-<div>
-
-PIS
-
-<br>
-
-Product Identity
-
-</div>
-
-
-
-<div>
-
-VMS
-
-<br>
-
-Reference Matching
-
-</div>
-
-
-
-<div>
-
-RFQ
-
-<br>
-
-Qualified Quote
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section>
-
-<div class="container">
-
-
-<div class="section-head">
-
-
-<span>
-PRODUCT SELECTION WORKFLOW
-</span>
-
-
-<h2>
-Find. Verify. Configure. Request.
-</h2>
-
-
-</div>
-
-
-
-
-<div class="product-grid">
-
-
-<div class="product-card">
-
-<h3>
-Step 1 — Find
-</h3>
-
-<p>
-Search by category, image,
-standard or engineering requirement.
-</p>
-
-</div>
-
-
-
-<div class="product-card">
-
-<h3>
-Step 2 — Verify
-</h3>
-
-<p>
-Confirm dimensions, material,
-grade and coating.
-</p>
-
-</div>
-
-
-
-<div class="product-card">
-
-<h3>
-Step 3 — RFQ
-</h3>
-
-<p>
-Submit validated requirements
-for qualified sourcing.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section>
-
-<div class="container">
-
-
-<div class="section-head">
-
-<span>
-GLOBAL APPLICATIONS
-</span>
-
-
-<h2>
-Critical Industries Served
-</h2>
-
-
-</div>
-
-
-
-
-<div class="industry-grid">
-
-<div>Railway</div>
-<div>Heavy Industry</div>
-<div>Steel</div>
-<div>Oil & Gas</div>
-<div>Petrochemical</div>
-<div>Mining</div>
-<div>Power Plants</div>
-<div>Marine & Offshore</div>
-<div>Renewable Energy</div>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section class="quality">
-
-
-<div class="container quality-box">
-
-
-<div>
-
-<div class="tag">
-QUALITY GATE SYSTEM
-</div>
-
-
-<h2>
-Controlled Product Qualification
-</h2>
-
-
-<p>
-Engineering review, supplier qualification,
-documentation control and release approval
-before industrial supply.
-</p>
-
-
-</div>
-
-
-<a href="quality.html" class="primary-btn">
-Quality System
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section class="final-rfq">
-
-
-<div class="container">
-
-
-<h2>
-Need A Specific Fastener Solution?
-</h2>
-
-
-<p>
-Send image, drawing, specification or standard.
-ARTIMO converts requirements into qualified industrial supply.
-</p>
-
-
-<a href="contact.html">
-Submit RFQ
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-</main>
-
-
-
-
-
-
-
-
-
-<footer>
-
-<div class="container footer-grid">
-
-
-<div>
-
-<strong>
-ARTIMO
-</strong>
-
-<br>
-
-Engineering Procurement Partner
-
-<br>
-
-Industrial Fasteners & Engineering Fastening Solutions
-
-</div>
-
-
-
-<div>
-
-PVIS<br>
-PIS<br>
-VMS<br>
-AMOS
-
-</div>
-
-
-
-<div>
-
-Quality Controlled Supply
-
-<br>
-
-Global Industrial Markets
-
-<br>
-
-© 2026 ARTIMO
-
-</div>
-
-
-</div>
-
-
-</footer>
-
-
-
-
-</body>
-
-</html>
+}
