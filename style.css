@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ARTIMO | Product Intelligence Platform</title>
+<title>ARTIMO | Industrial Fastener Intelligence Platform</title>
 
-<meta name="description" content="ARTIMO Product Intelligence Platform for industrial fasteners with engineering data, visual identification, standards, materials, coatings and RFQ workflow.">
+<meta name="description" content="ARTIMO Industrial Fastener Intelligence Platform combines PVIS, PIS, VMS, engineering parameters, product master data and RFQ workflow for industrial fastening solutions.">
 
 <link rel="stylesheet" href="style.css">
 
@@ -54,7 +54,9 @@ ARTIMO
 
 
 
+
 <main>
+
 
 
 <section class="hero product-hero">
@@ -63,23 +65,21 @@ ARTIMO
 
 
 <div class="tag">
-PRODUCT MASTER DATA SYSTEM
+PRODUCT INTELLIGENCE PLATFORM
 </div>
 
 
 <h1>
-Industrial Fastener
+Industrial Fasteners
 <br>
-Intelligence Platform
+From Identification To Qualified Supply
 </h1>
 
 
 <p>
-
-ARTIMO transforms industrial fastening requirements
-into structured engineering data, verified product identity
-and controlled procurement solutions.
-
+ARTIMO connects product recognition, engineering data,
+standards, supplier intelligence and RFQ execution
+into one industrial fastening platform.
 </p>
 
 
@@ -87,12 +87,12 @@ and controlled procurement solutions.
 <div class="hero-actions">
 
 <a href="product-search.html" class="primary-btn">
-Start Product Identification
+Identify Product With PVIS
 </a>
 
 
 <a href="contact.html" class="secondary-btn">
-Engineering RFQ
+Start Engineering RFQ
 </a>
 
 
@@ -110,8 +110,8 @@ Engineering RFQ
 
 
 
-<section class="core-platform">
 
+<section class="core-platform">
 
 <div class="container">
 
@@ -119,17 +119,17 @@ Engineering RFQ
 <div class="section-head">
 
 <span>
-ARTIMO PRODUCT TAXONOMY
+PRODUCT TAXONOMY SYSTEM
 </span>
 
 
 <h2>
-Industrial Fastener Categories
+Industrial Fastening Product Families
 </h2>
 
 
 <p>
-Structured product intelligence for critical industrial applications.
+Structured categories designed for engineering selection and procurement control.
 </p>
 
 
@@ -142,19 +142,26 @@ Structured product intelligence for critical industrial applications.
 <div class="platform-grid">
 
 
+
 <div class="platform-box">
 
-<strong>01</strong>
+<strong>
+01
+</strong>
 
 <h3>
 Bolts & Screws
 </h3>
 
 <p>
-Hex bolts, heavy hex bolts,
-socket screws, stud bolts and high strength fastening systems.
+Hex bolts, heavy hex bolts, socket screws,
+stud bolts, structural bolts and high strength fasteners.
 </p>
 
+
+<a href="contact.html">
+Request Solution
+</a>
 
 </div>
 
@@ -163,17 +170,23 @@ socket screws, stud bolts and high strength fastening systems.
 
 <div class="platform-box">
 
-<strong>02</strong>
+<strong>
+02
+</strong>
 
 <h3>
 Nuts
 </h3>
 
 <p>
-Heavy hex nuts, locking nuts
-and engineered connection components.
+Heavy hex nuts, standard nuts,
+locking systems and engineered connection components.
 </p>
 
+
+<a href="contact.html">
+Request Solution
+</a>
 
 </div>
 
@@ -182,7 +195,9 @@ and engineered connection components.
 
 <div class="platform-box">
 
-<strong>03</strong>
+<strong>
+03
+</strong>
 
 <h3>
 Washers
@@ -190,9 +205,13 @@ Washers
 
 <p>
 Flat washers, spring washers,
-Nord-Lock systems and special solutions.
+Nord-Lock and special industrial solutions.
 </p>
 
+
+<a href="contact.html">
+Request Solution
+</a>
 
 </div>
 
@@ -201,26 +220,32 @@ Nord-Lock systems and special solutions.
 
 <div class="platform-box">
 
-<strong>04</strong>
+<strong>
+04
+</strong>
 
 <h3>
 Special Fasteners
 </h3>
 
 <p>
-Customized industrial fastening solutions
-for demanding environments.
+Custom engineered fastening solutions
+for critical applications.
 </p>
 
 
+<a href="contact.html">
+Request Solution
+</a>
+
+</div>
+
+
+
 </div>
 
 
 </div>
-
-
-</div>
-
 
 </section>
 
@@ -231,8 +256,8 @@ for demanding environments.
 
 
 
-<section>
 
+<section>
 
 <div class="container">
 
@@ -240,16 +265,22 @@ for demanding environments.
 <div class="section-head">
 
 <span>
-ENGINEERING DATA STRUCTURE
+PRODUCT MASTER DATA SYSTEM
 </span>
 
 
 <h2>
-Product Parameter Intelligence
+Engineering Specification Framework
 </h2>
 
 
+<p>
+Every fastener is defined through controlled engineering parameters.
+</p>
+
+
 </div>
+
 
 
 
@@ -258,30 +289,56 @@ Product Parameter Intelligence
 
 
 <div>
-Diameter
+SIZE
+
 <br>
-D
+
+Diameter D
+
+<br>
+
+1/2" - 4"
+
 </div>
 
 
 <div>
-Length
+LENGTH
+
 <br>
+
 L
+
 </div>
 
 
 <div>
-Thread
+THREAD
+
 <br>
+
 Pitch / Class
+
 </div>
 
 
 <div>
-Material
+MATERIAL
+
 <br>
-Grade / Coating
+
+Grade
+
+</div>
+
+
+<div>
+COATING
+
+<br>
+
+Surface Protection
+
 </div>
 
 
@@ -289,7 +346,6 @@ Grade / Coating
 
 
 </div>
-
 
 </section>
 
@@ -303,23 +359,23 @@ Grade / Coating
 
 <section class="products">
 
-
 <div class="container">
 
 
 <div class="section-head">
 
 <span>
-PRODUCT MASTER DATA
+ENGINEERING DATA LAYERS
 </span>
 
 
 <h2>
-Engineering Specification Layers
+Product Qualification Structure
 </h2>
 
 
 </div>
+
 
 
 
@@ -331,15 +387,12 @@ Engineering Specification Layers
 <div class="product-card">
 
 <h3>
-Standards
+Standards Database
 </h3>
 
-
 <p>
-
-DIN / ISO / ASTM / ASME
-industrial fastening standards.
-
+DIN, ISO, ASTM and ASME standards
+mapped to industrial fastener requirements.
 </p>
 
 
@@ -352,16 +405,12 @@ industrial fastening standards.
 <div class="product-card">
 
 <h3>
-Materials
+Material Intelligence
 </h3>
 
-
 <p>
-
-Carbon Steel,
-Alloy Steel,
+Carbon Steel, Alloy Steel,
 Stainless Steel and engineered materials.
-
 </p>
 
 
@@ -374,19 +423,13 @@ Stainless Steel and engineered materials.
 <div class="product-card">
 
 <h3>
-Coatings
+Coating Intelligence
 </h3>
 
-
 <p>
-
-PTFE (Teflon),
-Zinc Plate,
-Black Oxide,
-Electro Galvanized,
-Hot Dip Galvanized,
-Cadmium Plate.
-
+PTFE (Teflon), Zinc Plate,
+Black Oxide, Electro Galvanized,
+Hot Dip Galvanized and Cadmium Plate.
 </p>
 
 
@@ -398,7 +441,6 @@ Cadmium Plate.
 
 
 </div>
-
 
 </section>
 
@@ -418,21 +460,19 @@ Cadmium Plate.
 
 <div class="section-head">
 
+
 <span>
-PVIS PRODUCT VISUAL IDENTIFICATION SYSTEM
+PVIS / PIS / VMS ENGINE
 </span>
 
 
 <h2>
-From Image To Engineering Solution
+Visual Identification To Engineering Match
 </h2>
 
 
 <p>
-
-Identify fasteners visually and connect them
-to technical specifications and RFQ workflow.
-
+ARTIMO converts product images into structured engineering information.
 </p>
 
 
@@ -451,42 +491,58 @@ UPLOAD
 
 <br>
 
-Product Image
+Image / Drawing
 
 </div>
+
 
 
 <div>
 
-RECOGNIZE
+PVIS
 
 <br>
 
-PVIS Matching
+Visual Recognition
 
 </div>
+
 
 
 <div>
 
-VALIDATE
+PIS
 
 <br>
 
-Engineering Review
+Product Identity
 
 </div>
+
 
 
 <div>
 
-QUOTE
+VMS
 
 <br>
 
-RFQ Process
+Reference Matching
 
 </div>
+
+
+
+<div>
+
+RFQ
+
+<br>
+
+Qualified Quote
+
+</div>
+
 
 
 </div>
@@ -507,6 +563,92 @@ RFQ Process
 
 <section>
 
+<div class="container">
+
+
+<div class="section-head">
+
+
+<span>
+PRODUCT SELECTION WORKFLOW
+</span>
+
+
+<h2>
+Find. Verify. Configure. Request.
+</h2>
+
+
+</div>
+
+
+
+
+<div class="product-grid">
+
+
+<div class="product-card">
+
+<h3>
+Step 1 — Find
+</h3>
+
+<p>
+Search by category, image,
+standard or engineering requirement.
+</p>
+
+</div>
+
+
+
+<div class="product-card">
+
+<h3>
+Step 2 — Verify
+</h3>
+
+<p>
+Confirm dimensions, material,
+grade and coating.
+</p>
+
+</div>
+
+
+
+<div class="product-card">
+
+<h3>
+Step 3 — RFQ
+</h3>
+
+<p>
+Submit validated requirements
+for qualified sourcing.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
 
 <div class="container">
 
@@ -514,12 +656,12 @@ RFQ Process
 <div class="section-head">
 
 <span>
-ENGINEERING APPLICATIONS
+GLOBAL APPLICATIONS
 </span>
 
 
 <h2>
-Designed For Critical Industries
+Critical Industries Served
 </h2>
 
 
@@ -530,42 +672,15 @@ Designed For Critical Industries
 
 <div class="industry-grid">
 
-<div>
-Railway
-</div>
-
-<div>
-Heavy Industry
-</div>
-
-<div>
-Steel
-</div>
-
-<div>
-Oil & Gas
-</div>
-
-<div>
-Petrochemical
-</div>
-
-<div>
-Mining
-</div>
-
-<div>
-Power Plants
-</div>
-
-<div>
-Marine
-</div>
-
-<div>
-Renewable Energy
-</div>
-
+<div>Railway</div>
+<div>Heavy Industry</div>
+<div>Steel</div>
+<div>Oil & Gas</div>
+<div>Petrochemical</div>
+<div>Mining</div>
+<div>Power Plants</div>
+<div>Marine & Offshore</div>
+<div>Renewable Energy</div>
 
 </div>
 
@@ -592,7 +707,7 @@ Renewable Energy
 <div>
 
 <div class="tag">
-QUALITY GATE
+QUALITY GATE SYSTEM
 </div>
 
 
@@ -602,10 +717,9 @@ Controlled Product Qualification
 
 
 <p>
-
-Every product path is supported by technical review,
-supplier qualification and documentation control.
-
+Engineering review, supplier qualification,
+documentation control and release approval
+before industrial supply.
 </p>
 
 
@@ -629,6 +743,7 @@ Quality System
 
 
 
+
 <section class="final-rfq">
 
 
@@ -641,11 +756,8 @@ Need A Specific Fastener Solution?
 
 
 <p>
-
-Send drawing, specification or product image.
-ARTIMO engineering workflow converts requirements
-into qualified supply.
-
+Send image, drawing, specification or standard.
+ARTIMO converts requirements into qualified industrial supply.
 </p>
 
 
@@ -669,6 +781,8 @@ Submit RFQ
 
 
 
+
+
 <footer>
 
 <div class="container footer-grid">
@@ -684,19 +798,34 @@ ARTIMO
 
 Engineering Procurement Partner
 
-</div>
+<br>
 
-
-<div>
-
-Industrial Fasteners<br>
-Engineering Solutions<br>
-Global Supply
+Industrial Fasteners & Engineering Fastening Solutions
 
 </div>
 
 
+
 <div>
+
+PVIS<br>
+PIS<br>
+VMS<br>
+AMOS
+
+</div>
+
+
+
+<div>
+
+Quality Controlled Supply
+
+<br>
+
+Global Industrial Markets
+
+<br>
 
 © 2026 ARTIMO
 
@@ -705,7 +834,9 @@ Global Supply
 
 </div>
 
+
 </footer>
+
 
 
 
