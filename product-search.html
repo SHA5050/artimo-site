@@ -10,6 +10,14 @@
 
 <meta name="description" content="ARTIMO PVIS Product Visual Identification System for industrial fastener recognition and RFQ preparation.">
 
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Product Visual Identification System | ARTIMO">
+<meta property="og:description" content="ARTIMO PVIS Product Visual Identification System for industrial fastener recognition and RFQ preparation.">
+<!-- Canonical & og:url: replace [YOUR-DOMAIN] before deployment -->
+<!-- <link rel="canonical" href="https://[YOUR-DOMAIN]/product-search.html"> -->
+<!-- <meta property="og:url" content="https://[YOUR-DOMAIN]/product-search.html"> -->
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -47,12 +55,15 @@ ARTIMO
 
 </nav>
 
+<button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+
 </div>
 
 </header>
 
-
-
+<main>
 
 <section class="hero">
 
@@ -107,6 +118,8 @@ U-Bolt
 Explore
 </a>
 
+<button class="pvis-identify-btn" onclick="searchProduct('bolts')">Identify This Type</button>
+
 </div>
 
 
@@ -127,6 +140,8 @@ Square Nut
 <a href="products.html" class="btn">
 Explore
 </a>
+
+<button class="pvis-identify-btn" onclick="searchProduct('nuts')">Identify This Type</button>
 
 </div>
 
@@ -149,10 +164,15 @@ Nord-Lock System
 Explore
 </a>
 
+<button class="pvis-identify-btn" onclick="searchProduct('washers')">Identify This Type</button>
+
 </div>
 
 
 
+</div>
+
+<div id="product-results">
 </div>
 
 
@@ -288,6 +308,8 @@ Send Technical Request
 
 
 
+
+</main>
 
 <footer>
 

@@ -9,6 +9,14 @@
 
 <meta name="description" content="Contact ARTIMO for industrial fasteners RFQ, engineering support, technical specifications and procurement solutions.">
 
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact ARTIMO | RFQ Engineering Support">
+<meta property="og:description" content="Contact ARTIMO for industrial fasteners RFQ, engineering support, technical specifications and procurement solutions.">
+<!-- Canonical & og:url: replace [YOUR-DOMAIN] before deployment -->
+<!-- <link rel="canonical" href="https://[YOUR-DOMAIN]/contact.html"> -->
+<!-- <meta property="og:url" content="https://[YOUR-DOMAIN]/contact.html"> -->
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -46,12 +54,15 @@ ARTIMO
 
 </nav>
 
+<button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+
 </div>
 
 </header>
 
-
-
+<main>
 
 <section class="hero">
 
@@ -148,6 +159,80 @@ Our team will review your requirements and prepare the suitable fastening soluti
 
 </div>
 
+<!-- AMOS RFQ FORM — Phase 1 Frontend | data-amos-* attributes preserve AMOS pipeline compatibility -->
+<form id="amos-rfq-form" class="rfq-form" data-amos-module="rfq" novalidate>
+
+  <div class="rfq-form-row">
+    <div class="rfq-form-group">
+      <label for="rfq-company">Company / Name <span style="color:var(--red)">*</span></label>
+      <input type="text" id="rfq-company" data-amos-field="company" placeholder="Your company or name" required>
+      <span class="rfq-form-error">This field is required.</span>
+    </div>
+    <div class="rfq-form-group">
+      <label for="rfq-email">Email <span style="color:var(--red)">*</span></label>
+      <input type="email" id="rfq-email" data-amos-field="email" placeholder="your@email.com" required>
+      <span class="rfq-form-error">Please enter a valid email address.</span>
+    </div>
+  </div>
+
+  <div class="rfq-form-group">
+    <label for="rfq-product">Product Type <span style="color:var(--red)">*</span></label>
+    <select id="rfq-product" data-amos-field="product-type" required>
+      <option value="">Select product type...</option>
+      <option value="Hex Bolt">Hex Bolt</option>
+      <option value="Heavy Hex Bolt">Heavy Hex Bolt</option>
+      <option value="Stud Bolt">Stud Bolt</option>
+      <option value="Socket Screw">Socket Screw</option>
+      <option value="Hex Nut">Hex Nut</option>
+      <option value="Heavy Hex Nut">Heavy Hex Nut</option>
+      <option value="Lock Nut">Lock Nut</option>
+      <option value="Flat Washer">Flat Washer</option>
+      <option value="Spring Washer">Spring Washer</option>
+      <option value="Nord-Lock System">Nord-Lock System</option>
+      <option value="Special Fastener">Special Fastener — Engineering Review Required</option>
+    </select>
+    <span class="rfq-form-error">Please select a product type.</span>
+  </div>
+
+  <div class="rfq-form-row">
+    <div class="rfq-form-group">
+      <label for="rfq-standard">Standard / Specification</label>
+      <input type="text" id="rfq-standard" data-amos-field="standard" placeholder="e.g. DIN 933, ASTM A193 B7, ISO 4014">
+    </div>
+    <div class="rfq-form-group">
+      <label for="rfq-material">Material Grade</label>
+      <input type="text" id="rfq-material" data-amos-field="material" placeholder="e.g. 8.8, A193 B7, 316 SS">
+    </div>
+  </div>
+
+  <div class="rfq-form-row">
+    <div class="rfq-form-group">
+      <label for="rfq-dimensions">Diameter &amp; Length</label>
+      <input type="text" id="rfq-dimensions" data-amos-field="dimensions" placeholder="e.g. M20 &times; 80mm / 3/4&quot; &times; 3&quot;">
+    </div>
+    <div class="rfq-form-group">
+      <label for="rfq-quantity">Quantity</label>
+      <input type="text" id="rfq-quantity" data-amos-field="quantity" placeholder="e.g. 500 pcs">
+    </div>
+  </div>
+
+  <div class="rfq-form-group">
+    <label for="rfq-notes">Additional Requirements</label>
+    <textarea id="rfq-notes" data-amos-field="notes" placeholder="Coating requirements, quality documents, inspection standards, drawings reference, application details..."></textarea>
+  </div>
+
+  <div>
+    <button type="submit" class="rfq-submit-btn">Submit Engineering RFQ</button>
+    <p class="rfq-form-note">Fields marked <span style="color:var(--red)">*</span> are required. ARTIMO engineering team responds within 1 business day.</p>
+  </div>
+
+</form>
+
+<div id="rfq-success" class="rfq-success">
+  <h3>RFQ Submitted</h3>
+  <p>Your engineering requirements have been received.<br>ARTIMO will review your specifications and respond within 1 business day.</p>
+</div>
+
 
 </section>
 
@@ -219,6 +304,8 @@ Send RFQ Email
 
 
 
+
+</main>
 
 <footer>
 

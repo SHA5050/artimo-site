@@ -717,3 +717,294 @@ grid-template-columns:1fr;
 }
 
 }
+
+
+/* =====================================================
+   PHASE 1 ADDITIONS
+   ===================================================== */
+
+
+/* --- MOBILE NAV TOGGLE --- */
+
+.nav-toggle{
+display:none;
+flex-direction:column;
+justify-content:center;
+gap:5px;
+background:none;
+border:none;
+cursor:pointer;
+padding:8px;
+width:44px;
+height:44px;
+flex-shrink:0;
+}
+
+.nav-toggle span{
+display:block;
+width:24px;
+height:2px;
+background:var(--text);
+border-radius:2px;
+transition:.3s;
+}
+
+@media(max-width:1000px){
+
+.nav-toggle{
+display:flex;
+}
+
+nav{
+display:none;
+position:fixed;
+top:82px;
+left:0;
+right:0;
+background:rgba(9,13,18,.97);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
+flex-direction:column;
+gap:0;
+padding:12px 0;
+z-index:99;
+}
+
+nav.open{
+display:flex;
+}
+
+nav a{
+padding:14px 24px;
+border-bottom:1px solid var(--line);
+font-size:16px;
+}
+
+.rfq-btn{
+margin:12px 24px!important;
+border-radius:8px!important;
+text-align:center;
+padding:12px 22px!important;
+display:block;
+}
+
+.nav-toggle.open span:nth-child(1){
+transform:translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2){
+opacity:0;
+}
+
+.nav-toggle.open span:nth-child(3){
+transform:translateY(-7px) rotate(-45deg);
+}
+
+}
+
+
+/* --- INTERSECTION OBSERVER VISIBLE STATE (activates existing JS) --- */
+
+.card,
+.section{
+opacity:1;
+}
+
+
+/* --- RFQ FORM --- */
+
+.rfq-form{
+max-width:800px;
+margin:40px auto 0;
+display:grid;
+gap:18px;
+}
+
+.rfq-form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.rfq-form-group{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.rfq-form-group label{
+font-size:12px;
+font-weight:700;
+letter-spacing:.8px;
+color:var(--muted);
+text-transform:uppercase;
+}
+
+.rfq-form-group input,
+.rfq-form-group select,
+.rfq-form-group textarea{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:10px;
+color:var(--text);
+font-family:inherit;
+font-size:15px;
+padding:12px 16px;
+transition:.3s;
+outline:none;
+-webkit-appearance:none;
+appearance:none;
+}
+
+.rfq-form-group select{
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aeb8c2' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+background-repeat:no-repeat;
+background-position:right 16px center;
+padding-right:40px;
+cursor:pointer;
+}
+
+.rfq-form-group input:focus,
+.rfq-form-group select:focus,
+.rfq-form-group textarea:focus{
+border-color:var(--red);
+}
+
+.rfq-form-group input::placeholder,
+.rfq-form-group textarea::placeholder{
+color:rgba(174,184,194,.45);
+}
+
+.rfq-form-group textarea{
+resize:vertical;
+min-height:110px;
+}
+
+.rfq-form-error{
+font-size:12px;
+color:#ff8888;
+display:none;
+}
+
+.rfq-submit-btn{
+background:var(--red);
+color:white;
+border:none;
+padding:14px 32px;
+border-radius:10px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+font-family:inherit;
+}
+
+.rfq-submit-btn:hover{
+background:var(--red-dark);
+}
+
+.rfq-form-note{
+font-size:13px;
+color:var(--muted);
+margin-top:12px;
+}
+
+.rfq-success{
+display:none;
+background:var(--card);
+border:1px solid var(--red);
+border-radius:var(--radius);
+padding:40px;
+text-align:center;
+max-width:800px;
+margin:40px auto 0;
+}
+
+.rfq-success h3{
+font-size:22px;
+margin-bottom:12px;
+}
+
+.rfq-success p{
+color:var(--muted);
+}
+
+@media(max-width:650px){
+
+.rfq-form-row{
+grid-template-columns:1fr;
+}
+
+.rfq-submit-btn{
+width:100%;
+}
+
+}
+
+
+/* --- PVIS RESULT BOX --- */
+
+#product-results{
+display:none;
+margin-top:35px;
+background:var(--card);
+border:1px solid var(--red);
+border-radius:var(--radius);
+padding:30px;
+max-width:620px;
+}
+
+#product-results h3{
+font-size:20px;
+margin-bottom:16px;
+}
+
+#product-results ul{
+list-style:none;
+display:grid;
+gap:10px;
+margin-bottom:24px;
+}
+
+#product-results ul li{
+padding:10px 16px;
+background:var(--bg);
+border:1px solid var(--line);
+border-radius:8px;
+color:var(--muted);
+}
+
+.pvis-rfq-link{
+display:inline-block;
+background:var(--red);
+color:white;
+padding:12px 24px;
+border-radius:10px;
+font-weight:700;
+transition:.3s;
+}
+
+.pvis-rfq-link:hover{
+background:var(--red-dark);
+}
+
+.pvis-identify-btn{
+display:inline-block;
+background:transparent;
+border:1px solid var(--line);
+color:var(--muted);
+padding:10px 18px;
+border-radius:8px;
+font-weight:600;
+font-size:14px;
+cursor:pointer;
+font-family:inherit;
+transition:.3s;
+margin-top:10px;
+width:100%;
+}
+
+.pvis-identify-btn:hover{
+border-color:var(--red);
+color:var(--red);
+}
