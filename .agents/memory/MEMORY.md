@@ -1,0 +1,1 @@
+- [ARTIMO Upgrade Roadmap](artimo-roadmap.md) — Phase 1 approved (mobile nav, RFQ form, PVIS, SEO/favicon), Phase 2 recorded (visual upgrade). Benchmark image is the locked reference. Never hardcode canonical domain.
