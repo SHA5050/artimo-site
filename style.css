@@ -352,21 +352,92 @@ font-weight:500;
 }
 
 
-/* RIGHT column — industrial engineering visual */
+/* RIGHT column — ARTIMO Bench visual (product composition) */
 .hero-visual{
 position:relative;
 overflow:hidden;
-background:#edf1f5;
+background:#0d1117;
 display:flex;
 align-items:stretch;
 }
 
 
-.hero-svg{
-width:100%;
+/* Dark engineered background with blueprint grid */
+.hv-bg{
+position:absolute;
+inset:0;
+background:
+  linear-gradient(135deg,#1a2433 0%,#0d1117 60%,#080b10 100%),
+  repeating-linear-gradient(0deg,transparent 0 38px,rgba(120,140,170,.06) 38px 39px),
+  repeating-linear-gradient(90deg,transparent 0 38px,rgba(120,140,170,.06) 38px 39px);
+}
+
+
+/* Red angular chevron accent (top-left of panel) */
+.hv-chevron{
+position:absolute;
+top:0;
+left:0;
+width:46%;
 height:100%;
-display:block;
-min-height:560px;
+background:linear-gradient(115deg,var(--red) 0%,rgba(214,47,47,.55) 38%,transparent 62%);
+clip-path:polygon(0 0,100% 0,62% 100%,0 100%);
+opacity:.92;
+}
+
+
+/* Product images — stacked diagonal composition */
+.hero-visual img{
+position:absolute;
+object-fit:contain;
+filter:drop-shadow(0 14px 28px rgba(0,0,0,.55));
+}
+
+
+.hv-bolt{
+width:300px;
+top:8%;
+right:6%;
+transform:rotate(-8deg);
+z-index:3;
+}
+
+
+.hv-stud{
+width:230px;
+bottom:10%;
+right:32%;
+transform:rotate(14deg);
+z-index:2;
+}
+
+
+.hv-nut{
+width:150px;
+top:42%;
+left:30%;
+transform:rotate(-18deg);
+z-index:4;
+}
+
+
+.hv-washer{
+width:120px;
+bottom:14%;
+left:14%;
+transform:rotate(6deg);
+opacity:.85;
+z-index:1;
+}
+
+
+/* Left-edge gradient fade into white copy column */
+.hv-fade{
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,#ffffff 0%,rgba(255,255,255,.35) 8%,transparent 22%);
+z-index:5;
+pointer-events:none;
 }
 
 
@@ -1057,6 +1128,19 @@ padding:60px 0;
 
 .hero h1{
 font-size:36px;
+}
+
+.hero-grid{
+grid-template-columns:1fr;
+min-height:auto;
+}
+
+.hero-visual{
+min-height:320px;
+}
+
+.hero-copy-inner{
+padding:48px 24px;
 }
 
 .quality-box{
