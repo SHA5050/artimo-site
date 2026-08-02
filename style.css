@@ -1598,6 +1598,29 @@ margin-top:12px;
 }
 
 
+.rfq-schema-hint{
+font-size:14px;
+color:var(--muted);
+padding:18px 0;
+text-align:center;
+border:1px dashed var(--line-med);
+border-radius:var(--radius-md);
+margin:0;
+}
+
+
+.rfq-schema-label{
+font-size:13px;
+font-weight:700;
+letter-spacing:.5px;
+text-transform:uppercase;
+color:var(--red);
+margin:0 0 18px;
+padding-bottom:10px;
+border-bottom:1px solid var(--line);
+}
+
+
 .rfq-success{
 display:none;
 background:var(--card);
