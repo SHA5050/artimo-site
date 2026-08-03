@@ -487,12 +487,127 @@ if(rfqProductSelect && rfqEngineeringFields){
 
 // --- RFQ FORM HANDLER (AMOS-compatible frontend) ---
 
+const SUPABASE_URL = "https://0ec90b57d6e95fcbda19832f.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJib2x0IiwicmVmIjoiMGVjOTBiNTdkNmU5NWZjYmRhMTk4MzJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4ODE1NzQsImV4cCI6MTc1ODg4MTU3NH0.9I8-U0x86Ak8t2DGaIk0HfvTSLsAyzdnz-Nw00mMkKw";
+
 const rfqForm    = document.getElementById("amos-rfq-form");
 const rfqSuccess = document.getElementById("rfq-success");
 
+// --- FILE UPLOAD SUPPORT ---
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+let selectedFiles = [];
+
+const fileDrop    = document.getElementById("rfq-file-drop");
+const fileInput   = document.getElementById("rfq-files");
+const fileListEl  = document.getElementById("rfq-file-list");
+
+if(fileInput && fileDrop){
+
+    fileDrop.addEventListener("click", function(){
+        fileInput.click();
+    });
+
+    fileInput.addEventListener("change", function(){
+        addFiles(this.files);
+        this.value = "";
+    });
+
+    fileDrop.addEventListener("dragover", function(e){
+        e.preventDefault();
+        fileDrop.classList.add("dragover");
+    });
+
+    fileDrop.addEventListener("dragleave", function(){
+        fileDrop.classList.remove("dragover");
+    });
+
+    fileDrop.addEventListener("drop", function(e){
+        e.preventDefault();
+        fileDrop.classList.remove("dragover");
+        addFiles(e.dataTransfer.files);
+    });
+}
+
+function addFiles(fileList){
+    for(var i = 0; i < fileList.length; i++){
+        var f = fileList[i];
+        if(f.size > MAX_FILE_SIZE){
+            renderFileItem(f, true);
+            continue;
+        }
+        selectedFiles.push(f);
+        renderFileItem(f, false);
+    }
+}
+
+function renderFileItem(file, isError){
+    var li = document.createElement("li");
+    li.className = "rfq-file-item";
+
+    var name = document.createElement("span");
+    name.className = "rfq-file-item-name";
+    name.textContent = file.name + " (" + formatSize(file.size) + ")";
+    li.appendChild(name);
+
+    if(isError){
+        li.style.borderColor = "#ff8888";
+        var err = document.createElement("span");
+        err.className = "rfq-file-item-error";
+        err.textContent = "Exceeds 10MB";
+        li.appendChild(err);
+    } else {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "rfq-file-item-remove";
+        btn.textContent = "\u00d7";
+        btn.addEventListener("click", function(){
+            var idx = selectedFiles.indexOf(file);
+            if(idx > -1) selectedFiles.splice(idx, 1);
+            li.remove();
+        });
+        li.appendChild(btn);
+    }
+
+    fileListEl.appendChild(li);
+}
+
+function formatSize(bytes){
+    if(bytes < 1024) return bytes + " B";
+    if(bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(1) + " MB";
+}
+
+async function uploadFiles(){
+    var links = [];
+    for(var i = 0; i < selectedFiles.length; i++){
+        var f = selectedFiles[i];
+        var ext = f.name.split(".").pop().toLowerCase();
+        var safeName = Date.now() + "-" + Math.random().toString(36).substr(2, 8) + "." + ext;
+        var path = "rfq/" + safeName;
+
+        var res = await fetch(SUPABASE_URL + "/storage/v1/object/rfq-uploads/" + path, {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+                "Content-Type": f.type || "application/octet-stream",
+                "x-upsert": "false"
+            },
+            body: f
+        });
+
+        if(res.ok){
+            links.push({
+                name: f.name,
+                url: SUPABASE_URL + "/storage/v1/object/public/rfq-uploads/" + path
+            });
+        }
+    }
+    return links;
+}
+
 if(rfqForm){
 
-    rfqForm.addEventListener("submit", function(e){
+    rfqForm.addEventListener("submit", async function(e){
 
         e.preventDefault();
 
@@ -538,6 +653,19 @@ if(rfqForm){
 
         if(!valid) return;
 
+        // Upload attached files (if any) to Supabase Storage
+        var uploadedLinks = [];
+        if(selectedFiles.length > 0){
+            var submitBtn = rfqForm.querySelector(".rfq-submit-btn");
+            if(submitBtn) submitBtn.classList.add("uploading");
+            try {
+                uploadedLinks = await uploadFiles();
+            } catch(err) {
+                uploadedLinks = [];
+            }
+            if(submitBtn) submitBtn.classList.remove("uploading");
+        }
+
         // Build structured RFQ payload (data-amos-field attributes — AMOS pipeline ready)
         const payload = {
             company:      rfqForm.querySelector("[data-amos-field='company']").value,
@@ -563,6 +691,9 @@ if(rfqForm){
             "Diameter & Length:     " + payload.dimensions  + "\n" +
             "Quantity:              " + payload.quantity    + "\n\n" +
             "Additional Requirements:\n" + payload.notes    + "\n\n" +
+            (uploadedLinks.length > 0
+                ? "Attached Documents:\n" + uploadedLinks.map(function(l){ return "  - " + l.name + ": " + l.url; }).join("\n") + "\n\n"
+                : "") +
             "------------------------\n" +
             "Submitted via ARTIMO Engineering RFQ System";
 

@@ -1633,6 +1633,95 @@ border-bottom:1px solid var(--line);
 }
 
 
+.rfq-file-drop{
+border:2px dashed var(--line-med);
+border-radius:var(--radius);
+padding:28px 20px;
+text-align:center;
+cursor:pointer;
+transition:.25s;
+background:#f9fafb;
+}
+
+.rfq-file-drop:hover,
+.rfq-file-drop.dragover{
+border-color:var(--red);
+background:var(--red-light);
+}
+
+.rfq-file-drop-text{
+font-size:14px;
+font-weight:600;
+color:var(--text);
+margin:0 0 4px;
+}
+
+.rfq-file-drop-hint{
+font-size:12px;
+color:var(--muted);
+margin:0;
+}
+
+.rfq-file-list{
+list-style:none;
+padding:0;
+margin:0;
+display:grid;
+gap:8px;
+}
+
+.rfq-file-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px 14px;
+background:var(--bg2);
+border:1px solid var(--line);
+border-radius:8px;
+font-size:13px;
+}
+
+.rfq-file-item-name{
+color:var(--text);
+font-weight:500;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+max-width:70%;
+}
+
+.rfq-file-item-remove{
+background:none;
+border:none;
+color:var(--red);
+cursor:pointer;
+font-size:18px;
+padding:0 4px;
+line-height:1;
+}
+
+.rfq-file-item-remove:hover{
+color:var(--red-dark);
+}
+
+.rfq-file-item-error{
+color:var(--red);
+font-size:12px;
+margin:0;
+}
+
+.rfq-submit-btn.uploading{
+opacity:.6;
+pointer-events:none;
+}
+
+.rfq-form-note{
+font-size:13px;
+color:var(--muted);
+margin-top:12px;
+}
+
+
 .rfq-success{
 display:none;
 background:var(--card);

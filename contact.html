@@ -198,6 +198,16 @@ Our team will review your requirements and prepare the suitable fastening soluti
     <p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>
   </div>
 
+  <div class="rfq-form-group">
+    <label for="rfq-files">Attach Documents</label>
+    <div id="rfq-file-drop" class="rfq-file-drop">
+      <input type="file" id="rfq-files" data-amos-field="files" multiple accept=".pdf,.png,.jpg,.jpeg,.gif,.webp,.svg,.dwg,.dxf,.step,.stp,.igs,.iges,.doc,.docx,.xls,.xlsx,.txt,.csv" hidden>
+      <p class="rfq-file-drop-text">Click or drag files here to attach</p>
+      <p class="rfq-file-drop-hint">Technical drawings, product images, specifications, quality documents (max 10MB each)</p>
+    </div>
+    <ul id="rfq-file-list" class="rfq-file-list"></ul>
+  </div>
+
   <div>
     <button type="submit" class="rfq-submit-btn">Submit Engineering RFQ</button>
     <p class="rfq-form-note">Fields marked <span style="color:var(--red)">*</span> are required. ARTIMO engineering team responds within 1 business day.</p>
