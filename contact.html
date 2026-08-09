@@ -10,12 +10,10 @@
 <meta name="description" content="Contact ARTIMO for industrial fasteners RFQ, engineering support, technical specifications and procurement solutions.">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact ARTIMO | RFQ Engineering Support">
 <meta property="og:description" content="Contact ARTIMO for industrial fasteners RFQ, engineering support, technical specifications and procurement solutions.">
-<!-- Canonical & og:url: replace [YOUR-DOMAIN] before deployment -->
-<!-- <link rel="canonical" href="https://[YOUR-DOMAIN]/contact.html"> -->
-<!-- <meta property="og:url" content="https://[YOUR-DOMAIN]/contact.html"> -->
 
 <link rel="stylesheet" href="style.css">
 
@@ -33,8 +31,8 @@
 
 <div class="brand-logo">
 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M22 3 L1 41 H10 L22 16 L34 41 H43 Z" fill="#d62f2f"/>
-  <path d="M12.5 30.5 H31.5" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M22 3 L1 41 H10 L22 16 L34 41 H43 Z" fill="#d62f2f"/>
+<path d="M12.5 30.5 H31.5" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
 </svg>
 </div>
 
@@ -57,6 +55,7 @@ ARTIMO
 
 </nav>
 
+
 <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
 <span></span><span></span><span></span>
 </button>
@@ -65,7 +64,9 @@ ARTIMO
 
 </header>
 
+
 <main>
+
 
 <section class="hero">
 
@@ -74,18 +75,25 @@ ARTIMO
 <h1>Engineering RFQ Center</h1>
 
 <p>
-Submit your industrial fastening requirements.
-ARTIMO engineering team will support product selection,
-technical review and procurement preparation.
+ARTIMO provides engineering-based support for product selection, technical review, supplier coordination and procurement preparation.
 </p>
-
 
 </div>
 
 </section>
 
 
+<section class="section">
 
+<h2>Engineering Experience</h2>
+
+<p>
+30+ Years of Industrial Engineering Experience
+<br>
+Railway, Maintenance & Reliability, and Industrial Supply Background
+</p>
+
+</section>
 
 
 <section class="section">
@@ -122,8 +130,6 @@ Our team will review your requirements and prepare the suitable fastening soluti
 </div>
 
 
-
-
 <div class="card">
 
 <h3>Quality Requirements</h3>
@@ -138,8 +144,6 @@ Our team will review your requirements and prepare the suitable fastening soluti
 </ul>
 
 </div>
-
-
 
 
 <div class="card">
@@ -161,76 +165,189 @@ Our team will review your requirements and prepare the suitable fastening soluti
 
 
 </div>
-
 <!-- AMOS RFQ FORM — Phase 1 Frontend | data-amos-* attributes preserve AMOS pipeline compatibility -->
+
 <form id="amos-rfq-form" class="rfq-form" data-amos-module="rfq" novalidate>
 
-  <div class="rfq-form-row">
-    <div class="rfq-form-group">
-      <label for="rfq-company">Company / Name <span style="color:var(--red)">*</span></label>
-      <input type="text" id="rfq-company" data-amos-field="company" placeholder="Your company or name" required>
-      <span class="rfq-form-error">This field is required.</span>
-    </div>
-    <div class="rfq-form-group">
-      <label for="rfq-email">Email <span style="color:var(--red)">*</span></label>
-      <input type="email" id="rfq-email" data-amos-field="email" placeholder="your@email.com" required>
-      <span class="rfq-form-error">Please enter a valid email address.</span>
-    </div>
-  </div>
+<div class="rfq-form-row">
 
-  <div class="rfq-form-group">
-    <label for="rfq-product">Product Type <span style="color:var(--red)">*</span></label>
-    <select id="rfq-product" data-amos-field="product-type" required>
-      <option value="">Select product type...</option>
-      <option value="Hex Bolt">Hex Bolt</option>
-      <option value="Heavy Hex Bolt">Heavy Hex Bolt</option>
-      <option value="Stud Bolt">Stud Bolt</option>
-      <option value="Socket Screw">Socket Screw</option>
-      <option value="Hex Nut">Hex Nut</option>
-      <option value="Heavy Hex Nut">Heavy Hex Nut</option>
-      <option value="Lock Nut">Lock Nut</option>
-      <option value="Flat Washer">Flat Washer</option>
-      <option value="Spring Washer">Spring Washer</option>
-      <option value="Nord-Lock System">Nord-Lock System</option>
-      <option value="Special Fastener">Special Fastener — Engineering Review Required</option>
-    </select>
-    <span class="rfq-form-error">Please select a product type.</span>
-  </div>
+<div class="rfq-form-group">
 
-  <div id="rfq-engineering-fields">
-    <p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>
-  </div>
+<label for="rfq-company">
+Company / Name <span style="color:var(--red)">*</span>
+</label>
 
-  <div class="rfq-form-group">
-    <label for="rfq-files">Attach Documents</label>
-    <div id="rfq-file-drop" class="rfq-file-drop">
-      <input type="file" id="rfq-files" data-amos-field="files" multiple accept=".pdf,.png,.jpg,.jpeg,.gif,.webp,.svg,.dwg,.dxf,.step,.stp,.igs,.iges,.doc,.docx,.xls,.xlsx,.txt,.csv" hidden>
-      <p class="rfq-file-drop-text">Click or drag files here to attach</p>
-      <p class="rfq-file-drop-hint">Technical drawings, product images, specifications, quality documents (max 10MB each)</p>
-    </div>
-    <ul id="rfq-file-list" class="rfq-file-list"></ul>
-  </div>
+<input type="text" id="rfq-company" data-amos-field="company" placeholder="Your company or name" required>
 
-  <div>
-    <button type="submit" class="rfq-submit-btn">Submit Engineering RFQ</button>
-    <p class="rfq-form-note">Fields marked <span style="color:var(--red)">*</span> are required. ARTIMO engineering team responds within 1 business day.</p>
-  </div>
+<span class="rfq-form-error">
+This field is required.
+</span>
 
-</form>
-
-<div id="rfq-success" class="rfq-success">
-  <h3>RFQ Submitted</h3>
-  <p>Your engineering requirements have been received.<br>ARTIMO will review your specifications and respond within 1 business day.</p>
 </div>
 
 
-</section>
+<div class="rfq-form-group">
+
+<label for="rfq-email">
+Email <span style="color:var(--red)">*</span>
+</label>
+
+<input type="email" id="rfq-email" data-amos-field="email" placeholder="your@email.com" required>
+
+<span class="rfq-form-error">
+Please enter a valid email address.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="rfq-form-group">
+
+<label for="rfq-product">
+Product Type <span style="color:var(--red)">*</span>
+</label>
+
+
+<select id="rfq-product" data-amos-field="product-type" required>
+
+<option value="">
+Select product type...
+</option>
+
+<option value="Hex Bolt">
+Hex Bolt
+</option>
+
+<option value="Heavy Hex Bolt">
+Heavy Hex Bolt
+</option>
+
+<option value="Stud Bolt">
+Stud Bolt
+</option>
+
+<option value="Socket Screw">
+Socket Screw
+</option>
+
+<option value="Hex Nut">
+Hex Nut
+</option>
+
+<option value="Heavy Hex Nut">
+Heavy Hex Nut
+</option>
+
+<option value="Lock Nut">
+Lock Nut
+</option>
+
+<option value="Flat Washer">
+Flat Washer
+</option>
+
+<option value="Spring Washer">
+Spring Washer
+</option>
+
+<option value="Nord-Lock System">
+Nord-Lock System
+</option>
+
+<option value="Special Fastener">
+Special Fastener — Engineering Review Required
+</option>
+
+</select>
+
+
+<span class="rfq-form-error">
+Please select a product type.
+</span>
+
+</div>
+
+
+<div id="rfq-engineering-fields">
+
+<p class="rfq-schema-hint">
+Select a product type to load the corresponding engineering fields.
+</p>
+
+</div>
+
+
+<div class="rfq-form-group">
+
+<label for="rfq-files">
+Attach Documents
+</label>
+
+
+<div id="rfq-file-drop" class="rfq-file-drop">
+
+<input type="file" id="rfq-files" data-amos-field="files" multiple accept=".pdf,.png,.jpg,.jpeg,.gif,.webp,.svg,.dwg,.dxf,.step,.stp,.igs,.iges,.doc,.docx,.xls,.xlsx,.txt,.csv" hidden>
+
+
+<p class="rfq-file-drop-text">
+Click or drag files here to attach
+</p>
+
+
+<p class="rfq-file-drop-hint">
+Technical drawings, product images, specifications, quality documents (max 10MB each)
+</p>
+
+</div>
+
+
+<ul id="rfq-file-list" class="rfq-file-list">
+</ul>
+
+
+</div>
+
+
+<div>
+
+<button type="submit" class="rfq-submit-btn">
+Submit Engineering RFQ
+</button>
+
+
+<p class="rfq-form-note">
+
+Fields marked <span style="color:var(--red)">*</span> are required.
+ARTIMO engineering team responds within 1 business day.
+
+</p>
+
+
+</div>
+
+
+</form>
 
 
 
+<div id="rfq-success" class="rfq-success">
 
 
+<h3>
+RFQ Submitted
+</h3>
 
+
+<p>
+Your engineering requirements have been received.
+<br>
+ARTIMO will review your specifications and respond within 1 business day.
+</p>
+
+
+</div>
 <section class="section dark-section">
 
 
@@ -244,6 +361,13 @@ Our team will review your requirements and prepare the suitable fastening soluti
 <p>
 <strong>Email:</strong><br>
 artimo.engineering@gmail.com
+</p>
+
+
+
+<p>
+<strong>WhatsApp:</strong><br>
++98 912 845 5009
 </p>
 
 
@@ -279,7 +403,7 @@ RFQ Review → Technical Evaluation → Quotation → Supply Coordination
 
 
 <p>
-Send your requirement and connect with ARTIMO engineering support.
+Share your fastening requirements, drawings or specifications and connect with ARTIMO engineering support.
 </p>
 
 
@@ -349,6 +473,8 @@ Global Industrial Markets
 </div>
 
 </footer>
+
+
 
 <script src="script.js"></script>
 
