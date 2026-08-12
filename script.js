@@ -653,61 +653,89 @@ if(rfqForm){
 
         if(!valid) return;
 
-        // Upload attached files (if any) to Supabase Storage
-        var uploadedLinks = [];
-        if(selectedFiles.length > 0){
-            var submitBtn = rfqForm.querySelector(".rfq-submit-btn");
-            if(submitBtn) submitBtn.classList.add("uploading");
-            try {
-                uploadedLinks = await uploadFiles();
-            } catch(err) {
-                uploadedLinks = [];
-            }
-            if(submitBtn) submitBtn.classList.remove("uploading");
-        }
-
-        // Build structured RFQ payload (data-amos-field attributes — AMOS pipeline ready)
+        // Submit RFQ directly to the Supabase Edge Function
         const payload = {
             company:      rfqForm.querySelector("[data-amos-field='company']").value,
             email:        rfqForm.querySelector("[data-amos-field='email']").value,
             productType:  rfqForm.querySelector("[data-amos-field='product-type']").value,
-            standard:     rfqForm.querySelector("[data-amos-field='standard']").value  || "Not specified",
-            material:     rfqForm.querySelector("[data-amos-field='material']").value  || "Not specified",
-            dimensions:   rfqForm.querySelector("[data-amos-field='dimensions']").value|| "Not specified",
-            quantity:     rfqForm.querySelector("[data-amos-field='quantity']").value  || "Not specified",
-            notes:        rfqForm.querySelector("[data-amos-field='notes']").value     || "None"
+            standard:     rfqForm.querySelector("[data-amos-field='standard']").value || "Not specified",
+            material:     rfqForm.querySelector("[data-amos-field='material']").value || "Not specified",
+            dimensions:   rfqForm.querySelector("[data-amos-field='dimensions']").value || "Not specified",
+            quantity:     rfqForm.querySelector("[data-amos-field='quantity']").value || "Not specified",
+            notes:        rfqForm.querySelector("[data-amos-field='notes']").value || "None"
         };
 
-        const subject = "ARTIMO Engineering RFQ \u2014 " + payload.productType + " \u2014 " + payload.company;
+        const engineeringData = {
+            standard: payload.standard,
+            material: payload.material,
+            dimensions: payload.dimensions,
+            quantity: payload.quantity,
+            notes: payload.notes
+        };
 
-        const body =
-            "ARTIMO ENGINEERING RFQ\n" +
-            "========================\n\n" +
-            "Company / Name:        " + payload.company     + "\n" +
-            "Email:                 " + payload.email       + "\n" +
-            "Product Type:          " + payload.productType + "\n" +
-            "Standard:              " + payload.standard    + "\n" +
-            "Material Grade:        " + payload.material    + "\n" +
-            "Diameter & Length:     " + payload.dimensions  + "\n" +
-            "Quantity:              " + payload.quantity    + "\n\n" +
-            "Additional Requirements:\n" + payload.notes    + "\n\n" +
-            (uploadedLinks.length > 0
-                ? "Attached Documents:\n" + uploadedLinks.map(function(l){ return "  - " + l.name + ": " + l.url; }).join("\n") + "\n\n"
-                : "") +
-            "------------------------\n" +
-            "Submitted via ARTIMO Engineering RFQ System";
+        const formData = new FormData();
 
-        window.location.href =
-            "mailto:artimo.engineering@gmail.com" +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body="    + encodeURIComponent(body);
+        formData.append("product_type", payload.productType);
+        formData.append("company_name", payload.company);
+        formData.append("contact_name", payload.company);
+        formData.append("email", payload.email);
+        formData.append("engineering_data", JSON.stringify(engineeringData));
+        formData.append("notes", payload.notes);
 
-        // Show success state
-        rfqForm.style.display = "none";
+        selectedFiles.forEach(function(file){
+            formData.append("files", file, file.name);
+        });
 
-        if(rfqSuccess) rfqSuccess.style.display = "block";
+        const submitBtn = rfqForm.querySelector(".rfq-submit-btn");
 
-        console.log("ARTIMO AMOS RFQ Payload:", payload);
+        if(submitBtn){
+            submitBtn.disabled = true;
+            submitBtn.classList.add("uploading");
+        }
+
+        try {
+            const response = await fetch(
+                SUPABASE_URL + "/functions/v1/submit-rfq",
+                {
+                    method: "POST",
+                    headers: {
+                        "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+                        "apikey": SUPABASE_ANON_KEY
+                    },
+                    body: formData
+                }
+            );
+
+            const result = await response.json().catch(function(){
+                return {};
+            });
+
+            if(!response.ok || !result.success){
+                throw new Error(result.error || "RFQ submission failed.");
+            }
+
+            rfqForm.style.display = "none";
+
+            if(rfqSuccess){
+                rfqSuccess.style.display = "block";
+            }
+
+            console.log("ARTIMO RFQ submitted successfully:", result);
+
+        } catch(error) {
+
+            console.error("ARTIMO RFQ submission error:", error);
+
+            if(submitBtn){
+                submitBtn.disabled = false;
+                submitBtn.classList.remove("uploading");
+            }
+
+            alert(
+                "RFQ submission failed. Please try again.\n\n" +
+                (error.message || "Unknown error")
+            );
+        }
 
     });
 
