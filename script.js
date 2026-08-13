@@ -574,7 +574,7 @@ if(rfqForm){
             email:        rfqForm.querySelector("[data-amos-field='email']").value,
             productType:  rfqForm.querySelector("[data-amos-field='product-type']").value,
             standard:     rfqForm.querySelector("[data-amos-field='standard']").value || "Not specified",
-            material:     rfqForm.querySelector("[data-amos-field='material']").value || "Not specified",
+            material:     rfqForm.querySelector("[data-amos-engineering-field='Material Grade']").value || "Not specified",
             dimensions:   rfqForm.querySelector("[data-amos-field='dimensions']").value || "Not specified",
             quantity:     rfqForm.querySelector("[data-amos-field='quantity']").value || "Not specified",
             notes:        rfqForm.querySelector("[data-amos-field='notes']").value || "None"
