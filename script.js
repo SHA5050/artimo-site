@@ -67,11 +67,13 @@ const productLibrary = {
 
             "Hex Bolt",
 
+            "Heavy Hex Bolt",
+
             "Stud Bolt",
 
             "Socket Screw",
 
-            "Eye Bolt",
+            "Anchor Bolt",
 
             "U-Bolt"
 
@@ -90,9 +92,7 @@ const productLibrary = {
 
             "Heavy Hex Nut",
 
-            "Lock Nut",
-
-            "Square Nut"
+            "Lock Nut"
 
         ]
 
@@ -107,11 +107,7 @@ const productLibrary = {
 
             "Flat Washer",
 
-            "Spring Washer",
-
-            "Lock Washer",
-
-            "Nord-Lock System"
+            "Spring Washer"
 
         ]
 
@@ -310,91 +306,106 @@ if(navToggle && siteNav){
 const engineeringSchemas = {
 
     "Hex Bolt": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. DIN 933, ISO 4014, ASTM A325" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 8.8, 10.9, A325, 316 SS" },
-        { field: "dimensions", label: "Diameter & Length",        placeholder: "e.g. M20 x 80mm / 3/4\" x 3\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 500 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Coating, inspection standards, drawings reference...", type: "textarea" }
+        { field: "diameter",    label: "Diameter",                 placeholder: "e.g. M20 / 3/4\"" },
+        { field: "length",      label: "Length",                   placeholder: "e.g. 80mm / 3\"" },
+        { field: "thread-pitch", label: "Thread Pitch",             placeholder: "e.g. 2.5mm / 10 TPI" },
+        { field: "thread-type", label: "Thread Type",              placeholder: "e.g. Metric, UNC, UNF" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. 8.8, 10.9, A325, 316 SS" }
     ],
 
     "Heavy Hex Bolt": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. ASTM A193 B7, A490, DIN 6914" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. A193 B7, B8M, 2H, 10.9" },
-        { field: "dimensions", label: "Diameter & Length",        placeholder: "e.g. M24 x 100mm / 1\" x 4\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 200 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Coating, temperature range, application details...", type: "textarea" }
+        { field: "diameter",    label: "Diameter",                 placeholder: "e.g. M24 / 1\"" },
+        { field: "length",      label: "Length",                   placeholder: "e.g. 100mm / 4\"" },
+        { field: "thread-pitch", label: "Thread Pitch",             placeholder: "e.g. 3.0mm / 8 TPI" },
+        { field: "thread-type", label: "Thread Type",              placeholder: "e.g. Metric, UNC, UNF" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. A193 B7, B8M, 2H, 10.9" }
     ],
 
     "Stud Bolt": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. ASTM A193 B7, B8, B8M" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. B7, B8 Class 2, B8M" },
-        { field: "dimensions", label: "Diameter & Length",        placeholder: "e.g. 5/8\" x 3-1/2\" (full thread)" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 100 sets" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Nut type (heavy hex), coating (PTFE/HDG), flange facing...", type: "textarea" }
+        { field: "diameter",    label: "Diameter",                 placeholder: "e.g. 5/8\" / M16" },
+        { field: "length",      label: "Length",                   placeholder: "e.g. 3-1/2\" / 90mm" },
+        { field: "thread-pitch", label: "Thread Pitch",             placeholder: "e.g. 11 TPI / 2.0mm" },
+        { field: "thread-type", label: "Thread Type",              placeholder: "e.g. Full thread, tap end, UNC" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. B7, B8 Class 2, B8M" }
     ],
 
     "Socket Screw": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. DIN 912, ISO 4762, ASTM A574" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 12.9, A2-70, A4-80" },
-        { field: "dimensions", label: "Diameter & Length",        placeholder: "e.g. M10 x 40mm / 3/8\" x 1-1/2\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 1000 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Head type (button head, flat head), coating...", type: "textarea" }
+        { field: "diameter",    label: "Diameter",                 placeholder: "e.g. M10 / 3/8\"" },
+        { field: "length",      label: "Length",                   placeholder: "e.g. 40mm / 1-1/2\"" },
+        { field: "thread-pitch", label: "Thread Pitch",             placeholder: "e.g. 1.5mm / 16 TPI" },
+        { field: "thread-type", label: "Thread Type",              placeholder: "e.g. Metric, UNC, UNF" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. 12.9, A2-70, A4-80" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. DIN 912, ISO 4762, ASTM A574" }
     ],
 
     "Hex Nut": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. DIN 934, ISO 4032, ASTM A563" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 8, 10, A563 Grade B, 316 SS" },
-        { field: "dimensions", label: "Nominal Diameter",        placeholder: "e.g. M20 / 3/4\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 500 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Coating, locking feature, application...", type: "textarea" }
+        { field: "nominal-diameter", label: "Nominal Diameter",   placeholder: "e.g. M20 / 3/4\"" },
+        { field: "thread",       label: "Thread",                   placeholder: "e.g. 2.5mm / 10 TPI" },
+        { field: "material-grade", label: "Material Grade",        placeholder: "e.g. 8, 10, A563 Grade B, 316 SS" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. DIN 934, ISO 4032, ASTM A563" }
     ],
 
     "Heavy Hex Nut": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. ASTM A194 2H, 7M, DIN 6915" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 2H, 7M, 7, 316 SS" },
-        { field: "dimensions", label: "Nominal Diameter",        placeholder: "e.g. M24 / 1\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 200 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Coating, temperature rating, matching stud spec...", type: "textarea" }
+        { field: "nominal-diameter", label: "Nominal Diameter",   placeholder: "e.g. M24 / 1\"" },
+        { field: "thread",       label: "Thread",                   placeholder: "e.g. 3.0mm / 8 TPI" },
+        { field: "material-grade", label: "Material Grade",        placeholder: "e.g. 2H, 7M, 7, 316 SS" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. ASTM A194 2H, 7M, DIN 6915" }
     ],
 
     "Lock Nut": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. DIN 985, ISO 10511, IFI-100" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 8, A2-70, 316 SS" },
-        { field: "dimensions", label: "Nominal Diameter",        placeholder: "e.g. M16 / 5/8\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 500 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Locking type (nylon insert, all-metal, prevailing torque)...", type: "textarea" }
+        { field: "nominal-diameter", label: "Nominal Diameter",   placeholder: "e.g. M16 / 5/8\"" },
+        { field: "thread",       label: "Thread",                   placeholder: "e.g. 2.0mm / 14 TPI" },
+        { field: "material-grade", label: "Material Grade",        placeholder: "e.g. 8, A2-70, 316 SS" },
+        { field: "locking-type", label: "Locking Type",           placeholder: "e.g. Nylon insert, all-metal, prevailing torque" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. DIN 985, ISO 10511, IFI-100" }
+    ],
+
+    "Anchor Bolt": [
+        { field: "diameter",    label: "Diameter",                 placeholder: "e.g. M24 / 1\"" },
+        { field: "overall-length", label: "Overall Length",       placeholder: "e.g. 300mm / 12\"" },
+        { field: "thread-length", label: "Thread Length",          placeholder: "e.g. 100mm / 4\"" },
+        { field: "anchor-type", label: "Anchor Type",             placeholder: "e.g. L-bolt, J-bolt, headed, wedge" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. F1554 Grade 36, 55, 105" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. ASTM F1554, A307" }
+    ],
+
+    "U-Bolt": [
+        { field: "rod-diameter", label: "Rod Diameter",           placeholder: "e.g. M16 / 5/8\"" },
+        { field: "inside-width", label: "Inside Width",           placeholder: "e.g. 50mm / 2\"" },
+        { field: "leg-length",  label: "Leg Length",               placeholder: "e.g. 100mm / 4\"" },
+        { field: "thread-length", label: "Thread Length",          placeholder: "e.g. 50mm / 2\"" },
+        { field: "thread",       label: "Thread",                 placeholder: "e.g. 2.0mm / 14 TPI" },
+        { field: "material",   label: "Material",                 placeholder: "e.g. Carbon steel, 316 SS, Galvanized" }
     ],
 
     "Flat Washer": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. DIN 125, ISO 7089, ASTM F436" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 100HV, 300HV, 316 SS, F436" },
-        { field: "dimensions", label: "Nominal Diameter",        placeholder: "e.g. M20 / 3/4\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 1000 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Thickness, surface finish, hardness requirement...", type: "textarea" }
+        { field: "nominal-diameter", label: "Nominal Diameter",   placeholder: "e.g. M20 / 3/4\"" },
+        { field: "inner-diameter", label: "Inner Diameter",        placeholder: "e.g. 21mm / 0.84\"" },
+        { field: "outer-diameter", label: "Outer Diameter",        placeholder: "e.g. 37mm / 1.46\"" },
+        { field: "thickness",    label: "Thickness",                placeholder: "e.g. 3mm / 0.12\"" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. 100HV, 300HV, 316 SS, F436" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. DIN 125, ISO 7089, ASTM F436" }
     ],
 
     "Spring Washer": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. DIN 127, DIN 128, ISO 10673" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. Spring Steel, 65Mn, 316 SS" },
-        { field: "dimensions", label: "Nominal Diameter",        placeholder: "e.g. M16 / 5/8\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 1000 pcs" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Single coil / double coil, surface treatment...", type: "textarea" }
-    ],
-
-    "Nord-Lock System": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. Nord-Lock NLSC, NLSP series" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. 316 SS, 254 SMO, Inconel" },
-        { field: "dimensions", label: "Nominal Diameter",        placeholder: "e.g. M20 / 3/4\"" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 500 sets" },
-        { field: "notes",       label: "Additional Requirements", placeholder: "Paired with bolt/nut spec, application environment...", type: "textarea" }
+        { field: "nominal-diameter", label: "Nominal Diameter",   placeholder: "e.g. M16 / 5/8\"" },
+        { field: "inner-diameter", label: "Inner Diameter",        placeholder: "e.g. 17mm / 0.67\"" },
+        { field: "outer-diameter", label: "Outer Diameter",        placeholder: "e.g. 32mm / 1.26\"" },
+        { field: "thickness",    label: "Thickness",                placeholder: "e.g. 3mm / 0.12\"" },
+        { field: "material-grade", label: "Material Grade",       placeholder: "e.g. Spring Steel, 65Mn, 316 SS" },
+        { field: "standard",   label: "Standard",                 placeholder: "e.g. DIN 127, DIN 128, ISO 10673" }
     ],
 
     "Special Fastener": [
-        { field: "standard",   label: "Standard / Specification", placeholder: "e.g. Custom drawing, proprietary spec" },
-        { field: "material",   label: "Material Grade",           placeholder: "e.g. As specified on drawing" },
-        { field: "dimensions", label: "Critical Dimensions",      placeholder: "e.g. Per drawing / as specified" },
-        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 50 pcs" },
-        { field: "notes",       label: "Engineering Details",      placeholder: "Drawing reference, application, load requirements, testing specs...", type: "textarea" }
+        { field: "product-specification", label: "Product Specification", placeholder: "e.g. Custom fastener description" },
+        { field: "diameter",    label: "Diameter / Size",           placeholder: "e.g. As specified" },
+        { field: "length",      label: "Length",                   placeholder: "e.g. As specified" },
+        { field: "thread",       label: "Thread",                 placeholder: "e.g. As specified" },
+        { field: "material-grade", label: "Material / Grade",     placeholder: "e.g. As specified on drawing" },
+        { field: "standard",   label: "Standard / Drawing Reference", placeholder: "e.g. Custom drawing, proprietary spec" },
+        { field: "critical-dimensions", label: "Critical Dimensions", placeholder: "e.g. Per drawing / as specified" },
+        { field: "coating",    label: "Coating / Surface Treatment", placeholder: "e.g. HDG, PTFE, Zinc plate" },
+        { field: "quantity",    label: "Quantity",                 placeholder: "e.g. 50 pcs" }
     ]
 
 };
@@ -487,8 +498,9 @@ if(rfqProductSelect && rfqEngineeringFields){
 
 // --- RFQ FORM HANDLER (AMOS-compatible frontend) ---
 
-const SUPABASE_URL = "https://0ec90b57d6e95fcbda19832f.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJib2x0IiwicmVmIjoiMGVjOTBiNTdkNmU5NWZjYmRhMTk4MzJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4ODE1NzQsImV4cCI6MTc1ODg4MTU3NH0.9I8-U0x86Ak8t2DGaIk0HfvTSLsAyzdnz-Nw00mMkKw";
+const SUPABASE_URL = "https://bjdmdtywlmahbkeyalwr.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqZG1kdHl3bG1haGJrZXlhbHdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NTMyMTEsImV4cCI6MjEwMTMyOTIxMX0.jyL_v_MWPDmsGY4KdQalvm8mrOdAW9_v7IQYpaT5Jv4";
+const RFQ_ENDPOINT = SUPABASE_URL + "/functions/v1/submit-rfq";
 
 const rfqForm    = document.getElementById("amos-rfq-form");
 const rfqSuccess = document.getElementById("rfq-success");
@@ -496,6 +508,7 @@ const rfqSuccess = document.getElementById("rfq-success");
 // --- FILE UPLOAD SUPPORT ---
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 let selectedFiles = [];
+let isSubmitting = false;
 
 const fileDrop    = document.getElementById("rfq-file-drop");
 const fileInput   = document.getElementById("rfq-files");
@@ -577,32 +590,16 @@ function formatSize(bytes){
     return (bytes / 1048576).toFixed(1) + " MB";
 }
 
-async function uploadFiles(){
-    var links = [];
-    for(var i = 0; i < selectedFiles.length; i++){
-        var f = selectedFiles[i];
-        var ext = f.name.split(".").pop().toLowerCase();
-        var safeName = Date.now() + "-" + Math.random().toString(36).substr(2, 8) + "." + ext;
-        var path = "rfq/" + safeName;
-
-        var res = await fetch(SUPABASE_URL + "/storage/v1/object/rfq-uploads/" + path, {
-            method: "POST",
-            headers: {
-                "Authorization": "Bearer " + SUPABASE_ANON_KEY,
-                "Content-Type": f.type || "application/octet-stream",
-                "x-upsert": "false"
-            },
-            body: f
-        });
-
-        if(res.ok){
-            links.push({
-                name: f.name,
-                url: SUPABASE_URL + "/storage/v1/object/public/rfq-uploads/" + path
-            });
-        }
-    }
-    return links;
+function showFormError(message){
+    var existing = rfqForm.querySelector(".rfq-submit-error");
+    if(existing) existing.remove();
+    var errEl = document.createElement("p");
+    errEl.className = "rfq-submit-error";
+    errEl.style.color = "#ff8888";
+    errEl.style.marginTop = "12px";
+    errEl.textContent = message;
+    var btn = rfqForm.querySelector(".rfq-submit-btn");
+    if(btn) btn.parentElement.appendChild(errEl);
 }
 
 if(rfqForm){
@@ -610,6 +607,8 @@ if(rfqForm){
     rfqForm.addEventListener("submit", async function(e){
 
         e.preventDefault();
+
+        if(isSubmitting) return;
 
         let valid = true;
 
@@ -653,71 +652,76 @@ if(rfqForm){
 
         if(!valid) return;
 
-        // Upload attached files (if any) to Supabase Storage
-        var uploadedLinks = [];
-        if(selectedFiles.length > 0){
-            var submitBtn = rfqForm.querySelector(".rfq-submit-btn");
-            if(submitBtn) submitBtn.classList.add("uploading");
-            try {
-                uploadedLinks = await uploadFiles();
-            } catch(err) {
-                uploadedLinks = [];
-            }
-            if(submitBtn) submitBtn.classList.remove("uploading");
+        // Collect all dynamic engineering fields from the rendered schema area
+        var engineeringData = {};
+        var engFields = rfqEngineeringFields.querySelectorAll("input, textarea, select");
+        engFields.forEach(function(f){
+            var key = f.getAttribute("data-amos-field");
+            if(key) engineeringData[key] = f.value || "";
+        });
+
+        // Collect static top-level fields
+        var productType = rfqForm.querySelector("[data-amos-field='product-type']").value;
+        var company     = rfqForm.querySelector("[data-amos-field='company']").value;
+        var email       = rfqForm.querySelector("[data-amos-field='email']").value;
+        var industry    = rfqForm.querySelector("[data-amos-field='industry']").value;
+        var application = rfqForm.querySelector("[data-amos-field='application']").value;
+        var deliveryDate= rfqForm.querySelector("[data-amos-field='delivery-date']").value;
+
+        // Merge static fields into engineering_data so nothing is lost
+        if(industry)    engineeringData.industry = industry;
+        if(application) engineeringData.application = application;
+        if(deliveryDate) engineeringData.delivery_date = deliveryDate;
+
+        // Build multipart form data
+        var formData = new FormData();
+        formData.append("product_type", productType);
+        formData.append("company_name", company);
+        formData.append("email", email);
+        formData.append("engineering_data", JSON.stringify(engineeringData));
+        formData.append("notes", engineeringData.notes || "");
+
+        // Append files
+        for(var i = 0; i < selectedFiles.length; i++){
+            formData.append("files[]", selectedFiles[i]);
         }
 
-        // Build structured RFQ payload (data-amos-field attributes — AMOS pipeline ready)
-        const payload = {
-            company:      rfqForm.querySelector("[data-amos-field='company']").value,
-            email:        rfqForm.querySelector("[data-amos-field='email']").value,
-            productType:  rfqForm.querySelector("[data-amos-field='product-type']").value,
-            industry:     rfqForm.querySelector("[data-amos-field='industry']").value       || "Not specified",
-            application:  rfqForm.querySelector("[data-amos-field='application']").value   || "Not specified",
-            diameter:     rfqForm.querySelector("[data-amos-field='diameter']").value       || "Not specified",
-            length:       rfqForm.querySelector("[data-amos-field='length']").value         || "Not specified",
-            standard:     rfqForm.querySelector("[data-amos-field='standard']").value      || "Not specified",
-            material:     rfqForm.querySelector("[data-amos-field='material']").value      || "Not specified",
-            dimensions:   rfqForm.querySelector("[data-amos-field='dimensions']").value    || "Not specified",
-            quantity:     rfqForm.querySelector("[data-amos-field='quantity']").value      || "Not specified",
-            deliveryDate: rfqForm.querySelector("[data-amos-field='delivery-date']").value || "Not specified",
-            notes:        rfqForm.querySelector("[data-amos-field='notes']").value         || "None"
-        };
+        // Submit to Edge Function
+        isSubmitting = true;
+        var submitBtn = rfqForm.querySelector(".rfq-submit-btn");
+        if(submitBtn){ submitBtn.disabled = true; submitBtn.classList.add("uploading"); submitBtn.textContent = "Submitting..."; }
 
-        const subject = "ARTIMO Engineering RFQ \u2014 " + payload.productType + " \u2014 " + payload.company;
+        try {
+            var res = await fetch(RFQ_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Authorization": "Bearer " + SUPABASE_ANON_KEY
+                },
+                body: formData
+            });
 
-        const body =
-            "ARTIMO ENGINEERING RFQ\n" +
-            "========================\n\n" +
-            "Company / Name:        " + payload.company      + "\n" +
-            "Email:                 " + payload.email        + "\n" +
-            "Product Type:          " + payload.productType  + "\n" +
-            "Industry:              " + payload.industry     + "\n" +
-            "Application:           " + payload.application  + "\n" +
-            "Diameter:              " + payload.diameter     + "\n" +
-            "Length:                " + payload.length       + "\n" +
-            "Standard:              " + payload.standard     + "\n" +
-            "Material Grade:        " + payload.material     + "\n" +
-            "Diameter & Length:      " + payload.dimensions   + "\n" +
-            "Quantity:              " + payload.quantity     + "\n" +
-            "Required Delivery Date:" + payload.deliveryDate + "\n\n" +
-            "Additional Requirements:\n" + payload.notes     + "\n\n" +
-            (uploadedLinks.length > 0
-                ? "Attached Documents:\n" + uploadedLinks.map(function(l){ return "  - " + l.name + ": " + l.url; }).join("\n") + "\n\n"
-                : "") +
-            "------------------------\n" +
-            "Submitted via ARTIMO Engineering RFQ System";
+            if(!res.ok){
+                var errBody = {};
+                try { errBody = await res.json(); } catch {}
+                throw new Error(errBody.error || "Submission failed (" + res.status + ")");
+            }
 
-        window.location.href =
-            "mailto:artimo.engineering@gmail.com" +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body="    + encodeURIComponent(body);
+            var result = await res.json();
 
-        // Show success state
-        rfqForm.style.display = "none";
+            if(!result.success){
+                throw new Error(result.error || "Submission failed");
+            }
 
-        if(rfqSuccess) rfqSuccess.style.display = "block";
+            // Show success state
+            rfqForm.style.display = "none";
+            if(rfqSuccess) rfqSuccess.style.display = "block";
 
-        console.log("ARTIMO AMOS RFQ Payload:", payload);
+        } catch(err) {
+            showFormError(err.message || "Failed to submit RFQ. Please try again or email us directly.");
+            if(submitBtn){ submitBtn.disabled = false; submitBtn.classList.remove("uploading"); submitBtn.textContent = "Submit Engineering RFQ"; }
+        } finally {
+            isSubmitting = false;
+        }
 
     });
 

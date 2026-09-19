@@ -1,0 +1,2 @@
+[functions.submit-rfq]
+verify_jwt = false

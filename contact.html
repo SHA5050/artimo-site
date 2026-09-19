@@ -182,16 +182,17 @@ Our team will review your requirements and prepare the suitable fastening soluti
     <label for="rfq-product">Product Type <span style="color:var(--red)">*</span></label>
     <select id="rfq-product" data-amos-field="product-type" required>
       <option value="">Select product type...</option>
-      <option value="Hex Bolt">Hex Bolt</option>
-      <option value="Heavy Hex Bolt">Heavy Hex Bolt</option>
       <option value="Stud Bolt">Stud Bolt</option>
-      <option value="Socket Screw">Socket Screw</option>
-      <option value="Hex Nut">Hex Nut</option>
+      <option value="Heavy Hex Bolt">Heavy Hex Bolt</option>
+      <option value="Hex Bolt">Hex Bolt</option>
       <option value="Heavy Hex Nut">Heavy Hex Nut</option>
-      <option value="Lock Nut">Lock Nut</option>
+      <option value="Hex Nut">Hex Nut</option>
+      <option value="Anchor Bolt">Anchor Bolt</option>
+      <option value="U-Bolt">U-Bolt</option>
       <option value="Flat Washer">Flat Washer</option>
       <option value="Spring Washer">Spring Washer</option>
-      <option value="Nord-Lock System">Nord-Lock System</option>
+      <option value="Lock Nut">Lock Nut</option>
+      <option value="Socket Screw">Socket Screw</option>
       <option value="Special Fastener">Special Fastener — Engineering Review Required</option>
     </select>
     <span class="rfq-form-error">Please select a product type.</span>
@@ -224,26 +225,9 @@ Our team will review your requirements and prepare the suitable fastening soluti
     </div>
   </div>
 
-  <div class="rfq-form-row">
-    <div class="rfq-form-group">
-      <label for="rfq-diameter">Diameter</label>
-      <input type="text" id="rfq-diameter" data-amos-field="diameter" placeholder="e.g. M20 / 3/4&quot;">
-    </div>
-    <div class="rfq-form-group">
-      <label for="rfq-length">Length</label>
-      <input type="text" id="rfq-length" data-amos-field="length" placeholder="e.g. 80mm / 3&quot;">
-    </div>
-  </div>
-
-  <div class="rfq-form-row">
-    <div class="rfq-form-group">
-      <label for="rfq-quantity">Quantity</label>
-      <input type="text" id="rfq-quantity" data-amos-field="quantity" placeholder="e.g. 500 pcs">
-    </div>
-    <div class="rfq-form-group">
-      <label for="rfq-delivery">Required Delivery Date</label>
-      <input type="date" id="rfq-delivery" data-amos-field="delivery-date">
-    </div>
+  <div class="rfq-form-group">
+    <label for="rfq-delivery">Required Delivery Date</label>
+    <input type="date" id="rfq-delivery" data-amos-field="delivery-date">
   </div>
 
   <div class="rfq-form-group">
