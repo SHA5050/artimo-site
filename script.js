@@ -111,6 +111,19 @@ const productLibrary = {
 
         ]
 
+    },
+
+
+    special:{
+
+        name:"Special Fasteners",
+
+        items:[
+
+            "Special Fastener"
+
+        ]
+
     }
 
 
@@ -674,6 +687,10 @@ if(rfqForm){
         if(application) engineeringData.application = application;
         if(deliveryDate) engineeringData.delivery_date = deliveryDate;
 
+        // Collect notes from the dedicated notes field
+        var notesField = rfqForm.querySelector("[data-amos-field='notes']");
+        var notesValue = notesField ? notesField.value : "";
+
         // Build multipart form data
         var formData = new FormData();
         formData.append("product_type", productType);
@@ -681,7 +698,7 @@ if(rfqForm){
         formData.append("contact_name", contactName || "");
         formData.append("email", email);
         formData.append("engineering_data", JSON.stringify(engineeringData));
-        formData.append("notes", engineeringData.notes || "");
+        formData.append("notes", notesValue);
 
         // Append files
         for(var i = 0; i < selectedFiles.length; i++){
