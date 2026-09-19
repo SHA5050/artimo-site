@@ -671,11 +671,16 @@ if(rfqForm){
             company:      rfqForm.querySelector("[data-amos-field='company']").value,
             email:        rfqForm.querySelector("[data-amos-field='email']").value,
             productType:  rfqForm.querySelector("[data-amos-field='product-type']").value,
-            standard:     rfqForm.querySelector("[data-amos-field='standard']").value  || "Not specified",
-            material:     rfqForm.querySelector("[data-amos-field='material']").value  || "Not specified",
-            dimensions:   rfqForm.querySelector("[data-amos-field='dimensions']").value|| "Not specified",
-            quantity:     rfqForm.querySelector("[data-amos-field='quantity']").value  || "Not specified",
-            notes:        rfqForm.querySelector("[data-amos-field='notes']").value     || "None"
+            industry:     rfqForm.querySelector("[data-amos-field='industry']").value       || "Not specified",
+            application:  rfqForm.querySelector("[data-amos-field='application']").value   || "Not specified",
+            diameter:     rfqForm.querySelector("[data-amos-field='diameter']").value       || "Not specified",
+            length:       rfqForm.querySelector("[data-amos-field='length']").value         || "Not specified",
+            standard:     rfqForm.querySelector("[data-amos-field='standard']").value      || "Not specified",
+            material:     rfqForm.querySelector("[data-amos-field='material']").value      || "Not specified",
+            dimensions:   rfqForm.querySelector("[data-amos-field='dimensions']").value    || "Not specified",
+            quantity:     rfqForm.querySelector("[data-amos-field='quantity']").value      || "Not specified",
+            deliveryDate: rfqForm.querySelector("[data-amos-field='delivery-date']").value || "Not specified",
+            notes:        rfqForm.querySelector("[data-amos-field='notes']").value         || "None"
         };
 
         const subject = "ARTIMO Engineering RFQ \u2014 " + payload.productType + " \u2014 " + payload.company;
@@ -683,14 +688,19 @@ if(rfqForm){
         const body =
             "ARTIMO ENGINEERING RFQ\n" +
             "========================\n\n" +
-            "Company / Name:        " + payload.company     + "\n" +
-            "Email:                 " + payload.email       + "\n" +
-            "Product Type:          " + payload.productType + "\n" +
-            "Standard:              " + payload.standard    + "\n" +
-            "Material Grade:        " + payload.material    + "\n" +
-            "Diameter & Length:     " + payload.dimensions  + "\n" +
-            "Quantity:              " + payload.quantity    + "\n\n" +
-            "Additional Requirements:\n" + payload.notes    + "\n\n" +
+            "Company / Name:        " + payload.company      + "\n" +
+            "Email:                 " + payload.email        + "\n" +
+            "Product Type:          " + payload.productType  + "\n" +
+            "Industry:              " + payload.industry     + "\n" +
+            "Application:           " + payload.application  + "\n" +
+            "Diameter:              " + payload.diameter     + "\n" +
+            "Length:                " + payload.length       + "\n" +
+            "Standard:              " + payload.standard     + "\n" +
+            "Material Grade:        " + payload.material     + "\n" +
+            "Diameter & Length:      " + payload.dimensions   + "\n" +
+            "Quantity:              " + payload.quantity     + "\n" +
+            "Required Delivery Date:" + payload.deliveryDate + "\n\n" +
+            "Additional Requirements:\n" + payload.notes     + "\n\n" +
             (uploadedLinks.length > 0
                 ? "Attached Documents:\n" + uploadedLinks.map(function(l){ return "  - " + l.name + ": " + l.url; }).join("\n") + "\n\n"
                 : "") +

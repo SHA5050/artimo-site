@@ -1747,6 +1747,39 @@ color:var(--muted);
 }
 
 
+.rfq-trust{
+max-width:800px;
+margin:32px auto 0;
+text-align:center;
+padding:24px;
+border-top:1px solid var(--line);
+}
+
+.rfq-trust-statement{
+font-size:18px;
+font-weight:700;
+color:var(--text);
+margin-bottom:14px;
+}
+
+.rfq-trust-list{
+list-style:none;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+}
+
+.rfq-trust-list li{
+font-size:13px;
+color:var(--muted);
+padding:6px 14px;
+border:1px solid var(--line);
+border-radius:20px;
+background:var(--bg2);
+}
+
+
 @media(max-width:650px){
 
 .rfq-form-row{
