@@ -663,6 +663,7 @@ if(rfqForm){
         // Collect static top-level fields
         var productType = rfqForm.querySelector("[data-amos-field='product-type']").value;
         var company     = rfqForm.querySelector("[data-amos-field='company']").value;
+        var contactName = rfqForm.querySelector("[data-amos-field='contact-name']").value;
         var email       = rfqForm.querySelector("[data-amos-field='email']").value;
         var industry    = rfqForm.querySelector("[data-amos-field='industry']").value;
         var application = rfqForm.querySelector("[data-amos-field='application']").value;
@@ -677,6 +678,7 @@ if(rfqForm){
         var formData = new FormData();
         formData.append("product_type", productType);
         formData.append("company_name", company);
+        formData.append("contact_name", contactName || "");
         formData.append("email", email);
         formData.append("engineering_data", JSON.stringify(engineeringData));
         formData.append("notes", engineeringData.notes || "");
