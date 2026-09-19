@@ -14,7 +14,13 @@ Deno.serve(async (req: Request) => {
   if (req.method !== "POST") {
     return new Response(
       JSON.stringify({ error: "Method not allowed" }),
-      { status: 405, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      {
+        status: 405,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 
@@ -30,17 +36,28 @@ Deno.serve(async (req: Request) => {
 
     if (!productType || !companyName || !email) {
       return new Response(
-        JSON.stringify({ error: "Missing required fields: product_type, company_name, email" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({
+          error: "Missing required fields: product_type, company_name, email",
+        }),
+        {
+          status: 400,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
       );
     }
 
     let engineeringData: Record<string, string> = {};
+
     if (engineeringDataRaw) {
       try {
         engineeringData = JSON.parse(engineeringDataRaw as string);
       } catch {
-        engineeringData = { raw: engineeringDataRaw as string };
+        engineeringData = {
+          raw: engineeringDataRaw as string,
+        };
       }
     }
 
@@ -56,13 +73,18 @@ Deno.serve(async (req: Request) => {
     for (const file of files) {
       if (file instanceof File) {
         const ext = file.name.split(".").pop() || "bin";
-        const safeName = `${Date.now()}-${Math.random().toString(36).substring(2, 10)}.${ext}`;
+        const safeName = `${Date.now()}-${Math.random()
+          .toString(36)
+          .substring(2, 10)}.${ext}`;
         const path = `rfq/${safeName}`;
 
         const { error: uploadError } = await supabase
           .storage
           .from("rfq-uploads")
-          .upload(path, file, { contentType: file.type || "application/octet-stream", upsert: false });
+          .upload(path, file, {
+            contentType: file.type || "application/octet-stream",
+            upsert: false,
+          });
 
         if (!uploadError) {
           const { data: publicUrlData } = supabase
@@ -70,7 +92,10 @@ Deno.serve(async (req: Request) => {
             .from("rfq-uploads")
             .getPublicUrl(path);
 
-          fileUrls.push({ name: file.name, url: publicUrlData.publicUrl });
+          fileUrls.push({
+            name: file.name,
+            url: publicUrlData.publicUrl,
+          });
         }
       }
     }
@@ -82,7 +107,16 @@ Deno.serve(async (req: Request) => {
         company_name: companyName as string,
         contact_name: contactName as string || null,
         email: email as string,
+
+        // Persist these fields in their dedicated database columns
+        industry: engineeringData.industry || null,
+        application: engineeringData.application || null,
+        delivery_date: engineeringData.delivery_date || null,
+
+        // Preserve the complete engineering data JSON
         engineering_data: engineeringData,
+
+        // Preserve notes and uploaded file URLs
         notes: notes as string || null,
         file_urls: fileUrls,
       })
@@ -91,19 +125,46 @@ Deno.serve(async (req: Request) => {
 
     if (error) {
       return new Response(
-        JSON.stringify({ error: "Failed to save RFQ submission" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({
+          error: "Failed to save RFQ submission",
+        }),
+        {
+          status: 500,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
       );
     }
 
     return new Response(
-      JSON.stringify({ success: true, id: data.id }),
-      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      JSON.stringify({
+        success: true,
+        id: data.id,
+      }),
+      {
+        status: 200,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+      }
     );
   } catch (err) {
     return new Response(
-      JSON.stringify({ error: err.message || "Internal server error" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      JSON.stringify({
+        error: err instanceof Error
+          ? err.message
+          : "Internal server error",
+      }),
+      {
+        status: 500,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 });
