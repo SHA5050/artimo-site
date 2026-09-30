@@ -353,6 +353,24 @@ font-weight:500;
 
 
 /* RIGHT column — ARTIMO Bench visual (product composition) */
+.home-main > .core-platform,
+.home-main > .rfq-engine,
+.home-main > .quality,
+.home-main > .final-rfq{
+ display:none;
+}
+
+.home-main{
+ display:flex;
+ flex-direction:column;
+}
+
+.home-main > .hero{order:1;}
+.home-main > .products{order:2;}
+.home-main > .pvis-entry{order:3;}
+.home-main > .industries{order:4;}
+.home-main > .stats-bar{order:5;}
+
 .hero-visual{
 position:relative;
 overflow:hidden;
@@ -659,6 +677,43 @@ transform:translateX(3px);
 background:var(--bg2);
 }
 
+.home-main .products{
+ padding:64px 0 72px;
+}
+
+.home-main .products .section-head{
+ margin-bottom:30px;
+}
+
+.home-main .product-grid{
+ grid-template-columns:repeat(5,1fr);
+ gap:16px;
+}
+
+.home-main .product-card{
+ border-radius:10px;
+}
+
+.home-main .product-card-img{
+ height:148px;
+}
+
+.home-main .product-card h3{
+ font-size:16px;
+ padding:18px 18px 0;
+}
+
+.home-main .product-card p{
+ font-size:13px;
+ line-height:1.5;
+ padding:0 18px;
+}
+
+.home-main .product-link{
+ margin:14px 18px 18px;
+ font-size:13px;
+}
+
 
 
 
@@ -804,6 +859,58 @@ text-align:center;
 }
 
 
+.stats-proof{
+ grid-column:1/-1;
+ text-align:center;
+ margin-bottom:8px;
+ padding-bottom:28px;
+ border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.stats-proof strong{
+ display:block;
+ font-size:clamp(22px,3vw,30px);
+ font-weight:800;
+ color:#f2f5f7;
+ margin-bottom:16px;
+}
+
+.stats-proof ul{
+ list-style:none;
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:10px 24px;
+ padding:0;
+ margin:0;
+}
+
+.stats-proof li{
+ font-size:14px;
+ color:#aeb8c2;
+ font-weight:500;
+ display:flex;
+ align-items:center;
+ gap:6px;
+}
+
+.stats-proof li::before{
+ content:"";
+ width:6px;
+ height:6px;
+ border-radius:50%;
+ background:var(--red);
+ flex-shrink:0;
+}
+
+@media(max-width:650px){
+ .stats-proof ul{
+  flex-direction:column;
+  gap:8px;
+ }
+}
+
+
 .stat-item{
 display:flex;
 flex-direction:column;
@@ -841,7 +948,19 @@ font-weight:600;
 
 .pvis-entry{
 background:var(--bg2);
-padding:80px 0;
+padding:72px 0;
+}
+
+.home-main .pvis-entry{
+ border-top:1px solid var(--line);
+}
+
+.home-main .industries{
+ padding:72px 0;
+}
+
+.home-main .stats-bar{
+ padding:56px 0;
 }
 
 
@@ -938,6 +1057,74 @@ margin-bottom:4px;
 .pvis-flow-desc{
 font-size:13px;
 color:var(--muted);
+}
+
+
+.pvis-upload-card{
+ display:flex;
+ align-items:center;
+ gap:14px;
+ background:var(--card);
+ border:2px dashed var(--line-med);
+ border-radius:12px;
+ padding:18px 22px;
+ margin-bottom:18px;
+ text-decoration:none;
+ color:var(--text);
+ transition:.25s;
+}
+
+.pvis-upload-card:hover{
+ border-color:var(--red);
+ background:var(--red-light);
+}
+
+.pvis-upload-card svg{
+ flex-shrink:0;
+ color:var(--red);
+}
+
+.pvis-upload-card span{
+ display:flex;
+ flex-direction:column;
+ gap:2px;
+}
+
+.pvis-upload-card strong{
+ font-size:15px;
+ font-weight:700;
+ color:var(--text);
+}
+
+.pvis-upload-card small{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.4;
+}
+
+
+.industry-all-link{
+ display:inline-flex;
+ align-items:center;
+ gap:6px;
+ margin-top:24px;
+ color:var(--red);
+ font-weight:700;
+ font-size:15px;
+ text-decoration:none;
+ transition:gap .2s ease;
+}
+
+.industry-all-link:hover{
+ gap:10px;
+}
+
+.industry-all-link span{
+ transition:transform .2s ease;
+}
+
+.industry-all-link:hover span{
+ transform:translateX(3px);
 }
 
 
@@ -1291,6 +1478,10 @@ font-weight:700;
 
 @media(max-width:1000px){
 
+.home-main .product-grid{
+ grid-template-columns:repeat(3,1fr);
+}
+
 .platform-grid,
 .rfq-flow,
 .product-grid,
@@ -1315,6 +1506,20 @@ display:none;
 
 @media(max-width:650px){
 
+.home-main .products,
+.home-main .industries{
+ padding:56px 0;
+}
+
+.home-main .product-grid{
+ grid-template-columns:1fr 1fr;
+ gap:14px;
+}
+
+.home-main .product-card-img{
+ height:132px;
+}
+
 .platform-grid,
 .rfq-flow,
 .product-grid,
@@ -1334,7 +1539,7 @@ padding:56px 0;
 }
 
 .hero{
-padding:60px 0;
+ padding:0;
 }
 
 .hero h1{
