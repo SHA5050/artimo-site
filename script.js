@@ -512,7 +512,7 @@ if(rfqProductSelect && rfqEngineeringFields){
 // --- RFQ FORM HANDLER (AMOS-compatible frontend) ---
 
 const SUPABASE_URL = "https://kjyxfacwhrthzwaxyemc.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqZG1kdHl3bG1haGJrZXlhbHdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NTMyMTEsImV4cCI6MjEwMTMyOTIxMX0.jyL_v_MWPDmsGY4KdQalvm8mrOdAW9_v7IQYpaT5Jv4";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJreXhmYWN3aHJ0aHp3YXh5ZW1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0NjM4NjksImV4cCI6MjEwMjAzOTg2OX0.W7avSv-nOPw5DQY92TqSCmOfIoWec7rBX_ByqnJgu1E";
 const RFQ_ENDPOINT = SUPABASE_URL + "/functions/v1/submit-rfq";
 
 const rfqForm    = document.getElementById("amos-rfq-form");
