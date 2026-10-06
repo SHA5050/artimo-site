@@ -162,8 +162,10 @@ Our team will review your requirements and prepare the suitable fastening soluti
 
 </div>
 
-<!-- AMOS RFQ FORM — Phase 1 Frontend | data-amos-* attributes preserve AMOS pipeline compatibility -->
+<!-- AMOS RFQ FORM — Multi-Product Engineering RFQ | data-amos-* attributes preserve AMOS pipeline compatibility -->
 <form id="amos-rfq-form" class="rfq-form" data-amos-module="rfq" novalidate>
+
+  <p class="rfq-section-label">Customer Information</p>
 
   <div class="rfq-form-row">
     <div class="rfq-form-group">
@@ -177,35 +179,121 @@ Our team will review your requirements and prepare the suitable fastening soluti
     </div>
   </div>
 
+  <div class="rfq-form-row">
+    <div class="rfq-form-group">
+      <label for="rfq-country">Country <span style="color:var(--red)">*</span></label>
+      <select id="rfq-country" data-amos-field="country" required>
+        <option value="">Select country...</option>
+        <option value="Afghanistan">Afghanistan</option>
+        <option value="Albania">Albania</option>
+        <option value="Algeria">Algeria</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Australia">Australia</option>
+        <option value="Austria">Austria</option>
+        <option value="Bahrain">Bahrain</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="Cambodia">Cambodia</option>
+        <option value="Cameroon">Cameroon</option>
+        <option value="Canada">Canada</option>
+        <option value="Chile">Chile</option>
+        <option value="China">China</option>
+        <option value="Colombia">Colombia</option>
+        <option value="Croatia">Croatia</option>
+        <option value="Czech Republic">Czech Republic</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Egypt">Egypt</option>
+        <option value="Ethiopia">Ethiopia</option>
+        <option value="Finland">Finland</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="Ghana">Ghana</option>
+        <option value="Greece">Greece</option>
+        <option value="Hungary">Hungary</option>
+        <option value="India">India</option>
+        <option value="Indonesia">Indonesia</option>
+        <option value="Iran">Iran</option>
+        <option value="Iraq">Iraq</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Israel">Israel</option>
+        <option value="Italy">Italy</option>
+        <option value="Japan">Japan</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Kazakhstan">Kazakhstan</option>
+        <option value="Kenya">Kenya</option>
+        <option value="Korea, South">South Korea</option>
+        <option value="Kuwait">Kuwait</option>
+        <option value="Lebanon">Lebanon</option>
+        <option value="Libya">Libya</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Morocco">Morocco</option>
+        <option value="Myanmar">Myanmar</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Norway">Norway</option>
+        <option value="Oman">Oman</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Peru">Peru</option>
+        <option value="Philippines">Philippines</option>
+        <option value="Poland">Poland</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Qatar">Qatar</option>
+        <option value="Romania">Romania</option>
+        <option value="Russia">Russia</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+        <option value="Singapore">Singapore</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Spain">Spain</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="Sudan">Sudan</option>
+        <option value="Sweden">Sweden</option>
+        <option value="Switzerland">Switzerland</option>
+        <option value="Syria">Syria</option>
+        <option value="Taiwan">Taiwan</option>
+        <option value="Tanzania">Tanzania</option>
+        <option value="Thailand">Thailand</option>
+        <option value="Tunisia">Tunisia</option>
+        <option value="Turkey">Turkey</option>
+        <option value="Uganda">Uganda</option>
+        <option value="Ukraine">Ukraine</option>
+        <option value="United Arab Emirates">United Arab Emirates</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="United States">United States</option>
+        <option value="Uruguay">Uruguay</option>
+        <option value="Venezuela">Venezuela</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Yemen">Yemen</option>
+        <option value="Other">Other</option>
+      </select>
+      <span class="rfq-form-error">This field is required.</span>
+    </div>
+    <div class="rfq-form-group">
+      <label for="rfq-phone">Phone</label>
+      <input type="tel" id="rfq-phone" data-amos-field="phone" placeholder="+1 555 123 4567">
+    </div>
+  </div>
+
   <div class="rfq-form-group">
     <label for="rfq-email">Email <span style="color:var(--red)">*</span></label>
     <input type="email" id="rfq-email" data-amos-field="email" placeholder="your@email.com" required>
     <span class="rfq-form-error">Please enter a valid email address.</span>
   </div>
 
-  <div class="rfq-form-group">
-    <label for="rfq-product">Product Type <span style="color:var(--red)">*</span></label>
-    <select id="rfq-product" data-amos-field="product-type" required>
-      <option value="">Select product type...</option>
-      <option value="Stud Bolt">Stud Bolt</option>
-      <option value="Heavy Hex Bolt">Heavy Hex Bolt</option>
-      <option value="Hex Bolt">Hex Bolt</option>
-      <option value="Heavy Hex Nut">Heavy Hex Nut</option>
-      <option value="Hex Nut">Hex Nut</option>
-      <option value="Anchor Bolt">Anchor Bolt</option>
-      <option value="U-Bolt">U-Bolt</option>
-      <option value="Flat Washer">Flat Washer</option>
-      <option value="Spring Washer">Spring Washer</option>
-      <option value="Lock Nut">Lock Nut</option>
-      <option value="Socket Screw">Socket Screw</option>
-      <option value="Special Fastener">Special Fastener — Engineering Review Required</option>
-    </select>
-    <span class="rfq-form-error">Please select a product type.</span>
+  <p class="rfq-section-label">Requested Products</p>
+
+  <div id="rfq-products-container">
+    <!-- Product blocks are dynamically inserted here -->
   </div>
 
-  <div id="rfq-engineering-fields">
-    <p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>
+  <div class="rfq-add-product-wrap">
+    <button type="button" id="rfq-add-product" class="rfq-add-product-btn">+ Add Another Product</button>
   </div>
+
+  <p class="rfq-section-label">Project Details</p>
 
   <div class="rfq-form-row">
     <div class="rfq-form-group">
@@ -232,7 +320,10 @@ Our team will review your requirements and prepare the suitable fastening soluti
 
   <div class="rfq-form-group">
     <label for="rfq-delivery">Required Delivery Date</label>
-    <input type="date" id="rfq-delivery" data-amos-field="delivery-date">
+    <div class="rfq-date-row">
+      <input type="date" id="rfq-delivery" data-amos-field="delivery-date">
+      <button type="button" id="rfq-delivery-today" class="rfq-today-btn">Today</button>
+    </div>
   </div>
 
   <div class="rfq-form-group">

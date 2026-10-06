@@ -25,6 +25,7 @@ document.querySelectorAll("nav a").forEach(link => {
 
 
 
+
 // Smooth Scroll
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -133,6 +134,7 @@ const productLibrary = {
 
 
 
+
 // Product Search Function
 
 window.searchProduct = function(category){
@@ -210,6 +212,7 @@ button.addEventListener("click", function(){
 
 
 });
+
 
 
 
@@ -424,88 +427,213 @@ const engineeringSchemas = {
 };
 
 
-const rfqProductSelect = document.getElementById("rfq-product");
-const rfqEngineeringFields = document.getElementById("rfq-engineering-fields");
+// --- MULTI-PRODUCT RFQ SYSTEM ---
 
+const PRODUCT_OPTIONS = [
+    { value: "Stud Bolt",        label: "Stud Bolt" },
+    { value: "Heavy Hex Bolt",   label: "Heavy Hex Bolt" },
+    { value: "Hex Bolt",         label: "Hex Bolt" },
+    { value: "Heavy Hex Nut",    label: "Heavy Hex Nut" },
+    { value: "Hex Nut",          label: "Hex Nut" },
+    { value: "Anchor Bolt",      label: "Anchor Bolt" },
+    { value: "U-Bolt",           label: "U-Bolt" },
+    { value: "Flat Washer",      label: "Flat Washer" },
+    { value: "Spring Washer",    label: "Spring Washer" },
+    { value: "Lock Nut",         label: "Lock Nut" },
+    { value: "Socket Screw",     label: "Socket Screw" },
+    { value: "Special Fastener", label: "Special Fastener — Engineering Review Required" }
+];
 
-if(rfqProductSelect && rfqEngineeringFields){
+var productsContainer = document.getElementById("rfq-products-container");
+var addProductBtn = document.getElementById("rfq-add-product");
+var productCounter = 0;
 
-    rfqProductSelect.addEventListener("change", function(){
+function buildProductOptionsHTML(selectedValue){
+    var html = '<option value="">Select product type...</option>';
+    for(var i = 0; i < PRODUCT_OPTIONS.length; i++){
+        var opt = PRODUCT_OPTIONS[i];
+        var sel = opt.value === selectedValue ? " selected" : "";
+        html += '<option value="' + opt.value + '"' + sel + '>' + opt.label + '</option>';
+    }
+    return html;
+}
 
-        const productType = this.value;
+function renderEngineeringFields(productIndex, productType){
+    var container = document.getElementById("rfq-eng-fields-" + productIndex);
+    if(!container) return;
 
-        if(!productType){
-            rfqEngineeringFields.innerHTML = '<p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>';
-            return;
+    if(!productType){
+        container.innerHTML = '<p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>';
+        return;
+    }
+
+    var schema = engineeringSchemas[productType];
+    if(!schema){
+        container.innerHTML = '<p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>';
+        return;
+    }
+
+    var html = '<p class="rfq-schema-label">Engineering Specification — ' + productType + '</p>';
+
+    for(var i = 0; i < schema.length; i++){
+        var field = schema[i];
+        var fieldId = "rfq-p" + productIndex + "-" + field.field;
+
+        if(field.field === "quantity") continue;
+
+        if(i < schema.length - 1 && schema[i + 1].field !== "quantity"){
+            var field2 = schema[i + 1];
+            var fieldId2 = "rfq-p" + productIndex + "-" + field2.field;
+
+            html += '<div class="rfq-form-row">';
+            html += '  <div class="rfq-form-group">';
+            html += '    <label for="' + fieldId + '">' + field.label + '</label>';
+            html += '    <input type="text" id="' + fieldId + '" data-eng-field="' + field.field + '" placeholder="' + field.placeholder + '">';
+            html += '  </div>';
+            html += '  <div class="rfq-form-group">';
+            html += '    <label for="' + fieldId2 + '">' + field2.label + '</label>';
+            html += '    <input type="text" id="' + fieldId2 + '" data-eng-field="' + field2.field + '" placeholder="' + field2.placeholder + '">';
+            html += '  </div>';
+            html += '</div>';
+            i++;
+        } else {
+            html += '<div class="rfq-form-group">';
+            html += '  <label for="' + fieldId + '">' + field.label + '</label>';
+            html += '  <input type="text" id="' + fieldId + '" data-eng-field="' + field.field + '" placeholder="' + field.placeholder + '">';
+            html += '</div>';
         }
+    }
 
-        const schema = engineeringSchemas[productType];
+    container.innerHTML = html;
 
-        if(!schema){
-            rfqEngineeringFields.innerHTML = '<p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>';
-            return;
+    container.querySelectorAll("input, textarea").forEach(function(newField){
+        newField.addEventListener("input", function(){
+            this.style.borderColor = "";
+        });
+    });
+}
+
+function createProductBlock(){
+    productCounter++;
+    var idx = productCounter;
+
+    var block = document.createElement("div");
+    block.className = "rfq-product-block";
+
+    var header = document.createElement("div");
+    header.className = "rfq-product-header";
+
+    var title = document.createElement("span");
+    title.className = "rfq-product-title";
+    title.textContent = "Product " + idx;
+    header.appendChild(title);
+
+    if(idx > 1){
+        var removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.className = "rfq-product-remove";
+        removeBtn.textContent = "Remove";
+        removeBtn.addEventListener("click", function(){
+            block.remove();
+            renumberProducts();
+        });
+        header.appendChild(removeBtn);
+    }
+
+    block.appendChild(header);
+
+    var typeGroup = document.createElement("div");
+    typeGroup.className = "rfq-form-group";
+    var typeLabel = document.createElement("label");
+    typeLabel.textContent = "Product Type *";
+    var typeSelect = document.createElement("select");
+    typeSelect.dataset.productType = "true";
+    typeSelect.innerHTML = buildProductOptionsHTML("");
+    typeSelect.addEventListener("change", function(){
+        renderEngineeringFields(idx, this.value);
+        if(this.value){
+            this.style.borderColor = "";
+            var err = this.parentElement.querySelector(".rfq-form-error");
+            if(err) err.style.display = "none";
         }
+    });
+    var typeError = document.createElement("span");
+    typeError.className = "rfq-form-error";
+    typeError.textContent = "Please select a product type.";
+    typeGroup.appendChild(typeLabel);
+    typeGroup.appendChild(typeSelect);
+    typeGroup.appendChild(typeError);
+    block.appendChild(typeGroup);
 
-        let html = '<p class="rfq-schema-label">Engineering Specification — ' + productType + '</p>';
+    var qtyGroup = document.createElement("div");
+    qtyGroup.className = "rfq-form-group";
+    var qtyLabel = document.createElement("label");
+    qtyLabel.textContent = "Quantity *";
+    var qtyInput = document.createElement("input");
+    qtyInput.type = "text";
+    qtyInput.dataset.productQty = "true";
+    qtyInput.placeholder = "e.g. 100 pcs";
+    qtyInput.addEventListener("input", function(){
+        this.style.borderColor = "";
+        var err = this.parentElement.querySelector(".rfq-form-error");
+        if(err) err.style.display = "none";
+    });
+    var qtyError = document.createElement("span");
+    qtyError.className = "rfq-form-error";
+    qtyError.textContent = "Quantity is required.";
+    qtyGroup.appendChild(qtyLabel);
+    qtyGroup.appendChild(qtyInput);
+    qtyGroup.appendChild(qtyError);
+    block.appendChild(qtyGroup);
 
-        // Group fields into rows of 2
-        for(let i = 0; i < schema.length; i++){
+    var engDiv = document.createElement("div");
+    engDiv.id = "rfq-eng-fields-" + idx;
+    engDiv.className = "rfq-eng-fields";
+    engDiv.innerHTML = '<p class="rfq-schema-hint">Select a product type to load the corresponding engineering fields.</p>';
+    block.appendChild(engDiv);
 
-            const field = schema[i];
-            const isTextarea = field.type === "textarea";
-            const fieldId = "rfq-" + field.field;
+    return block;
+}
 
-            if(!isTextarea && i < schema.length - 1 && i % 2 === 0 && schema[i+1] && schema[i+1].type !== "textarea"){
+function renumberProducts(){
+    if(!productsContainer) return;
+    var blocks = productsContainer.querySelectorAll(".rfq-product-block");
+    blocks.forEach(function(block, i){
+        var title = block.querySelector(".rfq-product-title");
+        if(title) title.textContent = "Product " + (i + 1);
+    });
+}
 
-                // Two-column row
-                const field2 = schema[i+1];
-                const fieldId2 = "rfq-" + field2.field;
+if(productsContainer){
+    productsContainer.appendChild(createProductBlock());
+}
 
-                html += '<div class="rfq-form-row">';
-                html += '  <div class="rfq-form-group">';
-                html += '    <label for="' + fieldId + '">' + field.label + '</label>';
-                html += '    <input type="text" id="' + fieldId + '" data-amos-field="' + field.field + '" placeholder="' + field.placeholder + '">';
-                html += '  </div>';
-                html += '  <div class="rfq-form-group">';
-                html += '    <label for="' + fieldId2 + '">' + field2.label + '</label>';
-                html += '    <input type="text" id="' + fieldId2 + '" data-amos-field="' + field2.field + '" placeholder="' + field2.placeholder + '">';
-                html += '  </div>';
-                html += '</div>';
-                i++; // skip next field since we consumed it
-
-            } else {
-
-                // Full-width field
-                html += '<div class="rfq-form-group">';
-                html += '  <label for="' + fieldId + '">' + field.label + '</label>';
-                if(isTextarea){
-                    html += '  <textarea id="' + fieldId + '" data-amos-field="' + field.field + '" placeholder="' + field.placeholder + '"></textarea>';
-                } else {
-                    html += '  <input type="text" id="' + fieldId + '" data-amos-field="' + field.field + '" placeholder="' + field.placeholder + '">';
-                }
-                html += '</div>';
+if(addProductBtn){
+    addProductBtn.addEventListener("click", function(){
+        if(productsContainer){
+            productsContainer.appendChild(createProductBlock());
+            var newBlock = productsContainer.lastElementChild;
+            if(newBlock){
+                newBlock.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
         }
-
-        rfqEngineeringFields.innerHTML = html;
-
-        // Attach error-clearing listeners to new fields
-        rfqEngineeringFields.querySelectorAll("input, textarea, select").forEach(function(newField){
-
-            newField.addEventListener("input", function(){
-
-                const err = this.parentElement.querySelector(".rfq-form-error");
-
-                if(err) err.style.display = "none";
-
-                this.style.borderColor = "";
-
-            });
-
-        });
-
     });
+}
 
+
+// --- TODAY BUTTON FOR DELIVERY DATE ---
+
+var todayBtn = document.getElementById("rfq-delivery-today");
+var deliveryInput = document.getElementById("rfq-delivery");
+
+if(todayBtn && deliveryInput){
+    todayBtn.addEventListener("click", function(){
+        var now = new Date();
+        var y = now.getFullYear();
+        var m = String(now.getMonth() + 1).padStart(2, "0");
+        var d = String(now.getDate()).padStart(2, "0");
+        deliveryInput.value = y + "-" + m + "-" + d;
+    });
 }
 
 
@@ -625,7 +753,7 @@ if(rfqForm){
 
         let valid = true;
 
-        // Required field validation
+        // Required field validation (static top-level fields)
         rfqForm.querySelectorAll("[required]").forEach(function(field){
 
             const err = field.parentElement.querySelector(".rfq-form-error");
@@ -663,37 +791,87 @@ if(rfqForm){
 
         }
 
+        // Validate each product block: product type + quantity required
+        if(productsContainer){
+            productsContainer.querySelectorAll(".rfq-product-block").forEach(function(block){
+                var typeSelect = block.querySelector("[data-product-type]");
+                var qtyInput = block.querySelector("[data-product-qty]");
+
+                if(typeSelect && !typeSelect.value.trim()){
+                    var err = typeSelect.parentElement.querySelector(".rfq-form-error");
+                    if(err) err.style.display = "block";
+                    typeSelect.style.borderColor = "#ff8888";
+                    valid = false;
+                }
+
+                if(qtyInput && !qtyInput.value.trim()){
+                    var err = qtyInput.parentElement.querySelector(".rfq-form-error");
+                    if(err) err.style.display = "block";
+                    qtyInput.style.borderColor = "#ff8888";
+                    valid = false;
+                }
+            });
+        }
+
         if(!valid) return;
 
-        // Collect all dynamic engineering fields from the rendered schema area
-        var engineeringData = {};
-        var engFields = rfqEngineeringFields.querySelectorAll("input, textarea, select");
-        engFields.forEach(function(f){
-            var key = f.getAttribute("data-amos-field");
-            if(key) engineeringData[key] = f.value || "";
+        // --- MULTI-PRODUCT DATA COLLECTION ---
+
+        var productBlocks = productsContainer ? productsContainer.querySelectorAll(".rfq-product-block") : [];
+        var products = [];
+        var firstProductType = "";
+
+        productBlocks.forEach(function(block, i){
+            var typeSelect = block.querySelector("[data-product-type]");
+            var qtyInput = block.querySelector("[data-product-qty]");
+            var engContainer = block.querySelector(".rfq-eng-fields");
+
+            var pType = typeSelect ? typeSelect.value.trim() : "";
+            var pQty = qtyInput ? qtyInput.value.trim() : "";
+
+            if(i === 0) firstProductType = pType;
+
+            var engData = {};
+            if(engContainer){
+                engContainer.querySelectorAll("input, textarea, select").forEach(function(f){
+                    var key = f.getAttribute("data-eng-field");
+                    if(key) engData[key] = f.value || "";
+                });
+            }
+
+            products.push({
+                product_type: pType,
+                quantity: pQty,
+                engineering: engData
+            });
         });
 
         // Collect static top-level fields
-        var productType = rfqForm.querySelector("[data-amos-field='product-type']").value;
         var company     = rfqForm.querySelector("[data-amos-field='company']").value;
         var contactName = rfqForm.querySelector("[data-amos-field='contact-name']").value;
+        var countryVal  = rfqForm.querySelector("[data-amos-field='country']").value;
+        var phoneVal    = rfqForm.querySelector("[data-amos-field='phone']").value;
         var email       = rfqForm.querySelector("[data-amos-field='email']").value;
         var industry    = rfqForm.querySelector("[data-amos-field='industry']").value;
         var application = rfqForm.querySelector("[data-amos-field='application']").value;
         var deliveryDate= rfqForm.querySelector("[data-amos-field='delivery-date']").value;
 
-        // Merge static fields into engineering_data so nothing is lost
+        // Build engineering_data: top-level fields + products array
+        var engineeringData = {};
+        if(countryVal)  engineeringData.country = countryVal;
+        if(phoneVal)    engineeringData.phone = phoneVal;
         if(industry)    engineeringData.industry = industry;
         if(application) engineeringData.application = application;
         if(deliveryDate) engineeringData.delivery_date = deliveryDate;
+        engineeringData.products = products;
 
-        // Collect notes from the dedicated notes field
+        // Collect notes
         var notesField = rfqForm.querySelector("[data-amos-field='notes']");
         var notesValue = notesField ? notesField.value : "";
 
-        // Build multipart form data
+        // Build multipart form data — preserve existing endpoint contract
         var formData = new FormData();
-        formData.append("product_type", productType);
+        formData.append("product_type", firstProductType || "");
         formData.append("company_name", company);
         formData.append("contact_name", contactName || "");
         formData.append("email", email);
@@ -744,7 +922,7 @@ if(rfqForm){
 
     });
 
-    // Clear errors on input
+    // Clear errors on input (static fields)
     rfqForm.querySelectorAll("input, select, textarea").forEach(function(field){
 
         field.addEventListener("input", function(){
