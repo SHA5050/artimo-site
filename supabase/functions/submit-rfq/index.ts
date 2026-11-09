@@ -17,7 +17,6 @@ const ALLOWED_EXTENSIONS: Record<string, string[]> = {
   "jpeg":  ["image/jpeg"],
   "gif":   ["image/gif"],
   "webp":  ["image/webp"],
-  "svg":   ["image/svg+xml"],
   "dwg":   ["application/acad", "application/dwg", "application/octet-stream"],
   "dxf":   ["application/dxf", "application/octet-stream"],
   "step":  ["application/step", "application/octet-stream"],
@@ -160,7 +159,7 @@ Deno.serve(async (req: Request) => {
           return new Response(
             JSON.stringify({
               success: false,
-              error: `File "${file.name}" has an unsupported extension (.${ext || "none"}). Allowed: PDF, PNG, JPG, GIF, WEBP, SVG, DWG, DXF, STEP, STP, IGS, IGES, DOC, DOCX, XLS, XLSX, TXT, CSV.`,
+              error: `File "${file.name}" has an unsupported extension (.${ext || "none"}). Allowed: PDF, PNG, JPG, GIF, WEBP, DWG, DXF, STEP, STP, IGS, IGES, DOC, DOCX, XLS, XLSX, TXT, CSV.`,
             }),
             { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
           );
