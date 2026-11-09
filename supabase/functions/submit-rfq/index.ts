@@ -115,9 +115,12 @@ Deno.serve(async (req: Request) => {
     }
 
     // --- Validate and collect files ---
-    const files = formData.getAll("files").filter(
-      (f): f is File => f instanceof File && f.size > 0
-    );
+    // The full multi-product frontend sends files under "files[]" (PHP-style array notation);
+    // the simplified frontend used "files". Accept both for compatibility.
+    const files = [
+      ...formData.getAll("files"),
+      ...formData.getAll("files[]"),
+    ].filter((f): f is File => f instanceof File && f.size > 0);
 
     if (files.length > MAX_FILE_COUNT) {
       return new Response(
